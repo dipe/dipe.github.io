@@ -1,5 +1,5 @@
-site_name: moba
-site_url: https://moba.dipe.de
+site_name: "[dipe]"
+site_url: https://dipe.github.io
 theme:
   name: material
   language: en
