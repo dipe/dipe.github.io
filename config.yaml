@@ -1,0 +1,10 @@
+site_name: moba
+site_url: https://moba.dipe.de
+theme:
+  name: material
+  language: en
+  palette: 
+    scheme: slate
+nav:
+  - Home: index.md
+  - moba.md
