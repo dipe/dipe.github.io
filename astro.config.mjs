@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightImageZoom from 'starlight-image-zoom'
+import starlightCatppuccin from '@catppuccin/starlight'
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,8 +10,14 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: '[dipe]',
-			plugins: [starlightImageZoom()],
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/dipe/dipe.github.io' }],
+			plugins: [
+				starlightCatppuccin({
+					dark: { flavor: "macchiato", accent: "sky" },
+					light: { flavor: "latte", accent: "sky" },
+				}),
+				starlightImageZoom()
+			],
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/dipe/' }],
 			// sidebar: [
 			// 	{
 			// 		label: 'Guides',
