@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightImageZoom from 'starlight-image-zoom'
 import starlightCatppuccin from '@catppuccin/starlight'
+import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
@@ -37,4 +38,16 @@ export default defineConfig({
 			// ],
 		}),
 	],
+	markdown: {
+    	rehypePlugins: [
+		[
+			rehypeExternalLinks,
+			{ 
+			content: { type: 'text', value: ' ↗' },
+			target: '_blank', 
+			rel: ['nofollow', 'noopener', 'noreferrer'] 
+			}
+		],
+	],
+  },
 });
