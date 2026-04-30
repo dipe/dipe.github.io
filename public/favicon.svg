@@ -18,7 +18,7 @@
        id="swatch2"
        inkscape:swatch="solid">
       <stop
-         style="stop-color:#1a6271;stop-opacity:1;"
+         style="stop-color:#245ab2;stop-opacity:1;"
          offset="0"
          id="stop2" />
     </linearGradient>
@@ -43,7 +43,7 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="4.1614583"
-     inkscape:cx="71.008761"
+     inkscape:cx="70.888611"
      inkscape:cy="28.235294"
      inkscape:window-width="1694"
      inkscape:window-height="1069"
@@ -59,7 +59,7 @@
      id="rect1"
      x="0"
      y="0"
-     style="fill:#2a3949;fill-opacity:1;stroke:url(#linearGradient2);stroke-width:0.288557;stroke-dasharray:none"
+     style="fill:#245ab2;fill-opacity:1;stroke:url(#linearGradient2);stroke-width:0.289;stroke-dasharray:none"
      ry="4" />
   <text
      x="15.999999"
@@ -72,11 +72,11 @@
      style="font-weight:900;font-size:11.7427px;font-family:'Arial Black', sans-serif;letter-spacing:-0.120862;text-anchor:middle;fill:#ffffff;stroke-width:0.978562"
      text-anchor="middle"
      id="text2"><tspan
-       style="fill:#1d5c94;fill-opacity:1;stroke-width:0.978562"
+       style="fill:#ff8000;fill-opacity:1;stroke-width:0.978562"
        id="tspan1">[</tspan><tspan
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.7427px;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.978562"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.7427px;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke-width:0.978562"
        id="tspan3">dipe</tspan><tspan
-       style="fill:#1d5c94;fill-opacity:1;stroke-width:0.978562"
+       style="fill:#ff8000;fill-opacity:1;stroke-width:0.978562"
        id="tspan2">]</tspan></text>
   <text
      xml:space="preserve"
@@ -87,5 +87,5 @@
        sodipodi:role="line"
        id="tspan4"
        x="132.88611"
-       y="90.833542"></tspan></text>
+       y="90.833542" /></text>
 </svg>
