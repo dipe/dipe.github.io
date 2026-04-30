@@ -10,6 +10,10 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: '[dipe]',
+	     	logo: {
+        		src: './src/assets/dipe-logo.svg',
+				replacesTitle: true,
+      		},
 			plugins: [
 				starlightCatppuccin({
 					dark: { flavor: "macchiato", accent: "sky" },
