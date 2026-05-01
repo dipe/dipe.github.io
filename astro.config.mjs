@@ -15,6 +15,9 @@ export default defineConfig({
         		src: './src/assets/dipe-logo.svg',
 				replacesTitle: true,
       		},
+			components: {
+				Footer: './src/components/Footer.astro', // Diese Zeile hinzufügen
+			},
 			plugins: [
 				starlightCatppuccin({
 					dark: { flavor: "macchiato", accent: "sky" },
@@ -23,19 +26,7 @@ export default defineConfig({
 				starlightImageZoom()
 			],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/dipe/' }],
-			// sidebar: [
-			// 	{
-			// 		label: 'Guides',
-			// 		items: [
-			// 			// Each item here is one entry in the navigation menu.
-			// 			{ label: 'Example Guide', slug: 'guides/example' },
-			// 		],
-			// 	},
-			// 	{
-			// 		label: 'Reference',
-			// 		autogenerate: { directory: 'reference' },
-			// 	},
-			// ],
+			lastUpdated: true,
 		}),
 	],
 	markdown: {

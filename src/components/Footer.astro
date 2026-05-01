@@ -1,0 +1,33 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/Footer.astro';
+---
+
+<Default {...Astro.props} />
+<hr />
+<div class="legal-footer">
+  <a href="/impressum/">Impressum</a>
+  <a href="/datenschutzerklaerung/">Datenschutzerklärung</a>
+</div>
+
+<style>
+  .legal-footer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: var(--sl-text-sm);
+  }
+  .legal-footer a {
+    color: var(--sl-color-gray-3);
+    text-decoration: none;
+  }
+  .legal-footer a:hover {
+    color: var(--sl-color-text-accent);
+  }
+  hr {
+    border: 0;
+    border-top: 1px solid var(--sl-color-gray-5);
+    margin-top: 2rem;
+  }
+</style>
