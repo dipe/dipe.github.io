@@ -46,7 +46,8 @@
        y1="35"
        x2="165.23666"
        y2="35"
-       gradientUnits="userSpaceOnUse" />
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0563516,0,0,1.1454755,-4.5495874,-4.7311912)" />
   </defs>
   <sodipodi:namedview
      id="namedview2"
@@ -67,14 +68,14 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
   <rect
-     width="158.4467"
-     height="59.724346"
+     width="167.37543"
+     height="68.412773"
      fill="#1a1c1e"
-     rx="11.570968"
+     rx="12.223011"
      id="rect1"
-     x="5.7766495"
-     y="5.1378269"
-     style="stroke-width:2.02663;fill:url(#linearGradient4);fill-opacity:1;stroke:#245ab2;stroke-opacity:1" />
+     x="1.5525854"
+     y="1.1540635"
+     style="fill:url(#linearGradient4);fill-opacity:1;stroke:#245ab2;stroke-width:2.22932;stroke-opacity:1" />
   <text
      x="85.000008"
      y="47.559826"
@@ -85,9 +86,13 @@
      letter-spacing="-0.5"
      style="fill:#ff8000;stroke-width:4.04827"
      text-anchor="middle"
-     id="text2">[<tspan
-   style="fill:#ffffff"
-   id="tspan3">dipe</tspan>]</text>
+     id="text2"><tspan
+       style="fill:#ff8a1c;fill-opacity:1"
+       id="tspan1">[</tspan><tspan
+       style="fill:#ffffff"
+       id="tspan3">dipe</tspan><tspan
+       style="fill:#ff8a1c;fill-opacity:1"
+       id="tspan2">]</tspan></text>
   <text
      xml:space="preserve"
      style="font-weight:bold;font-size:48.5789px;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans, Bold';writing-mode:lr-tb;direction:ltr;fill:#ffffff;stroke:#000000"
@@ -95,7 +100,7 @@
      y="32.200253"
      id="text4"><tspan
        sodipodi:role="line"
-       id="tspan4"></tspan></text>
+       id="tspan4" /></text>
   <text
      xml:space="preserve"
      style="font-weight:bold;font-size:48.5789px;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans, Bold';writing-mode:lr-tb;direction:ltr;fill:#2a3249;fill-opacity:1;stroke:#558adb;stroke-opacity:1"
@@ -103,5 +108,5 @@
      y="59.834793"
      id="text5"><tspan
        sodipodi:role="line"
-       id="tspan5"></tspan></text>
+       id="tspan5" /></text>
 </svg>
