@@ -29,23 +29,12 @@ import { Card } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 import bicycle from './etched-bicycle.jpg';
 
-<Card>
-  <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'start', flexWrap: 'wrap' }}>
-    
-    <div style={{ flex: '1', minWidth: '200px' }}>
-      <h3 style={{ marginTop: 0 }}>Photo-etched parts</h3>
-      
+<Card title="Photo-etched Parts">
+
       At the time, I used photo-etching techniques extensively. Look at the fine details: 
       railings, fences, antennas, and even the crossing keeper’s bicycle 
       leaning against his hut. The brick walls of the bridge and the cobbled street 
       were also etched and then used as masters for casting. 
-    </div>
-
-    <div style={{ flex: '0 0 auto' }}>
-      <Image src={bicycle} width="100" alt="Small etched bicycle" />
-    </div>
-
-  </div>
 </Card>
 
 import { LinkCard } from '@astrojs/starlight/components';
@@ -54,39 +43,55 @@ import { LinkCard } from '@astrojs/starlight/components';
 Wohltorf module baseboard (german only)." href="/Modulkasten.pdf" />
 
 ## Impressions
-![Impression](./1.jpg)
 
-![Impression](./3.jpg)
+Click to zoom!
 
-![Impression](./4.jpg)
+import MasonryGallery from '../../../../../components/MasonryGallery.astro';
+import bild0 from './0.jpg';
+import bild1 from './1.jpg';
+import bild2 from './2.jpg';
+import bild3 from './3.jpg';
+import bild4 from './4.jpg';
+import bild5 from './5.jpg';
+import bild6 from './6.jpg';
+import etched_bicycle from './etched-bicycle.jpg';
+import bild7 from './7.jpg';
+import bild9 from './9.jpg';
+import bild10 from './10.jpg';
+import bild11 from './11.jpg';
+import bild12 from './12.jpg';
+import bild13 from './13.jpg';
+import bild14 from './14.jpg';
+import bild15 from './15.jpg';
 
-![Vogelperspektive](./0.jpg)
+<MasonryGallery images={[
+  { src: bild1, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: bild2, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: bild15, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: bild3, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: etched_bicycle, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: bild14, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: bild4, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: bild9, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: bild7, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: bild0, alt: 'Impressionen vom Modul Wohltorf' },
+]} />
 
-![Impression](./14.jpg)
-
-![Impression](./15.jpg)
-
-![Impression](./7.jpg)
-
-{/*![Impression](./8.jpg)*/}
-
-![Impression](./9.jpg)
-
-![Impression](./2.jpg)
 
 ## The Real-Life Prototype
-![Impression](./6.jpg)
-
-![Impression](./5.jpg)
+<MasonryGallery images={[
+  { src: bild6, alt: 'The Real-Life Prototype' },
+  { src: bild5, alt: 'The Real-Life Prototype' },
+]} />
 
 ## During the construction phase
 Unfortunately, I only have a few photos from the construction phase, and none
 showing the entire model.
 
-![Impression](./10.jpg)
+<MasonryGallery images={[
+  { src: bild10, alt: 'During the construction phase' },
+  /* { src: bild11, alt: 'During the construction phase' }, */
+  { src: bild12, alt: 'During the construction phase' },
+  { src: bild13, alt: 'During the construction phase' },
+]} />
 
-{/*![Impression](./11.jpg)*/}
-
-![Impression](./12.jpg)
-
-![Impression](./13.jpg)

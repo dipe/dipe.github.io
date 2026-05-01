@@ -1,0 +1,65 @@
+---
+// src/components/MasonryGallery.astro
+import { Image } from 'astro:assets';
+const { images } = Astro.props;
+---
+
+<div class="masonry-wrapper">
+  {images.map((img) => (
+    <figure class="masonry-item">
+      <a data-fslightbox="gallery" href={img.src.src || img.src} data-caption={img.caption}>
+        <Image src={img.src} alt={img.alt} width={400} />
+        {img.caption && (
+          <figcaption class="image-caption">
+            {img.caption}
+          </figcaption>
+        )}
+      </a>
+    </figure>
+  ))}
+</div>
+
+<script>
+  import 'fslightbox';
+</script>
+
+<style>
+  .masonry-wrapper {
+    column-count: 3;
+    column-gap: 1.5rem;
+    width: 100%;
+  }
+
+  .masonry-item {
+    margin: 0 0 1.5rem; /* Abstand nach unten */
+    display: block;
+    break-inside: avoid;
+    border-radius: 12px;
+    background: var(--sl-color-gray-6); /* Dezenter Hintergrund für die Caption-Fläche */
+    overflow: hidden;
+    border: 1px solid var(--sl-color-gray-5);
+    transition: transform 0.3s ease;
+  }
+
+  .masonry-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--sl-color-accent);
+  }
+
+  .masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .image-caption {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--sl-color-gray-2);
+    border-top: 1px solid var(--sl-color-gray-5);
+  }
+
+  @media (max-width: 768px) { .masonry-wrapper { column-count: 2; } }
+  @media (max-width: 480px) { .masonry-wrapper { column-count: 1; } }
+</style>
