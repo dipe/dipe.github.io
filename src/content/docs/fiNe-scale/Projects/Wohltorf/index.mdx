@@ -20,15 +20,33 @@ model. Later, I replaced the railway barrier with one that was scale-accurate,
 produced using photo-etching techniques, and manually operated via a crank
 mechanism.
 
-In the early 2000s, I unfortunately had no time at all for my hobbies and I
-decided to gave the layout in 2008 to Wim, who has lovingly looked after it ever
+In the early 2000s, I unfortunately had no time at all for my hobbies and in 2008, 
+I decided to hand the layout over to Wim, who has lovingly looked after it ever
 since and regularly brings it to FREMO meetings. I am very grateful to Wim for
 that!
 
-## Photo-etched parts
-At the time, I used photo-etching techniques extensively: the fine details,
-railings, fences, bicycles, the brick walls of the bridge, and even the cobbled
-street were etched and then making a cast.
+import { Card } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import bicycle from './etched-bicycle.jpg';
+
+<Card>
+  <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'start', flexWrap: 'wrap' }}>
+    
+    <div style={{ flex: '1', minWidth: '200px' }}>
+      <h3 style={{ marginTop: 0 }}>Photo-etched parts</h3>
+      
+      At the time, I used photo-etching techniques extensively. Look at the fine details: 
+      railings, fences, antennas, and even the crossing keeper’s bicycle 
+      leaning against his hut. The brick walls of the bridge and the cobbled street 
+      were also etched and then used as masters for casting. 
+    </div>
+
+    <div style={{ flex: '0 0 auto' }}>
+      <Image src={bicycle} width="100" alt="Small etched bicycle" />
+    </div>
+
+  </div>
+</Card>
 
 import { LinkCard } from '@astrojs/starlight/components';
 
@@ -56,7 +74,7 @@ Wohltorf module baseboard (german only)." href="/Modulkasten.pdf" />
 
 ![Impression](./2.jpg)
 
-## The Subject
+## The Real-Life Prototype
 ![Impression](./6.jpg)
 
 ![Impression](./5.jpg)
