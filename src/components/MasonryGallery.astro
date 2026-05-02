@@ -1,17 +1,35 @@
 ---
 // src/components/MasonryGallery.astro
 import { Image } from 'astro:assets';
+import 'photoswipe/style.css';
+
 const { images } = Astro.props;
 ---
 
-<div class="masonry-wrapper">
+<div class="masonry-wrapper" id="pswp-gallery">
   {images.map((img) => (
     <figure class="masonry-item">
-      <a data-fslightbox="gallery" href={img.src.src || img.src} data-caption={img.caption}>
-        <Image src={img.src} alt={img.alt} width={400} />
+      {/* img.src ist hier das Objekt vom Astro Image Service.
+        Wir nutzen .width und .height für die PhotoSwipe-Animation.
+      */}
+      <a 
+        href={img.src.src} 
+        data-pswp-width={img.src.width} 
+        data-pswp-height={img.src.height} 
+        target="_blank"
+        class="pswp-link"
+      >
+        <Image 
+          src={img.src} 
+          alt={img.alt || ''} 
+          width={400}
+          quality="mid"
+        />
         {img.caption && (
           <figcaption class="image-caption">
             {img.caption}
+            {/* Verstecktes Element für die Lightbox-Caption */}
+            <span class="pswp-caption-content" style="display:none;">{img.caption}</span>
           </figcaption>
         )}
       </a>
@@ -20,7 +38,51 @@ const { images } = Astro.props;
 </div>
 
 <script>
-  import 'fslightbox';
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+  function initPhotoSwipe() {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#pswp-gallery',
+      children: 'a.pswp-link',
+      pswpModule: () => import('photoswipe'),
+
+      imageClickAction: 'close',
+      tapAction: 'close',
+      zoom: false,
+      secondaryZoomLevel: 1,
+      maxSpreadZoom: 1,
+    });
+
+    // Logik um die Captions in der Lightbox anzuzeigen
+    lightbox.on('uiRegister', function() {
+      lightbox.pswp.ui.registerElement({
+        name: 'custom-caption',
+        order: 9,
+        isAboveDelay: false,
+        tagName: 'div',
+        appendElementTo: 'pswp__scroll-wrap',
+        onInit: (el, pswp) => {
+          pswp.on('change', () => {
+            const currSlideElement = pswp.currSlide.data.element;
+            let captionHTML = '';
+            if (currSlideElement) {
+              const hiddenCaption = currSlideElement.querySelector('.pswp-caption-content');
+              if (hiddenCaption) {
+                captionHTML = hiddenCaption.innerHTML;
+              }
+            }
+            el.innerHTML = captionHTML;
+          });
+        }
+      });
+    });
+
+    lightbox.init();
+  }
+
+  // Unterstützung für Starlight (View Transitions / SPA-Navigation)
+  initPhotoSwipe();
+  document.addEventListener('astro:after-swap', initPhotoSwipe);
 </script>
 
 <style>
@@ -31,11 +93,11 @@ const { images } = Astro.props;
   }
 
   .masonry-item {
-    margin: 0 0 1.5rem; /* Abstand nach unten */
+    margin: 0 0 1.5rem;
     display: block;
     break-inside: avoid;
     border-radius: 12px;
-    background: var(--sl-color-gray-6); /* Dezenter Hintergrund für die Caption-Fläche */
+    background: var(--sl-color-gray-6);
     overflow: hidden;
     border: 1px solid var(--sl-color-gray-5);
     transition: transform 0.3s ease;
@@ -50,6 +112,7 @@ const { images } = Astro.props;
     width: 100%;
     height: auto;
     display: block;
+    cursor: zoom-in;
   }
 
   .image-caption {
@@ -60,6 +123,20 @@ const { images } = Astro.props;
     border-top: 1px solid var(--sl-color-gray-5);
   }
 
+  /* Styling für die Caption INNERHALB der Lightbox */
+  :global(.pswp__custom-caption) {
+    background: rgba(0, 0, 0, 0.75);
+    font-size: 1rem;
+    color: #fff;
+    width: 100%;
+    padding: 12px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    z-index: 1000;
+  }
+
   @media (max-width: 768px) { .masonry-wrapper { column-count: 2; } }
-  @media (max-width: 380px) { .masonry-wrapper { column-count: 1; } }
+  @media (max-width: 480px) { .masonry-wrapper { column-count: 1; } }
 </style>

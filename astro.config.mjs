@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import starlightImageZoom from 'starlight-image-zoom'
 import starlightCatppuccin from '@catppuccin/starlight'
 import rehypeExternalLinks from 'rehype-external-links';
 
@@ -23,7 +22,6 @@ export default defineConfig({
 					dark: { flavor: "macchiato", accent: "sky" },
 					light: { flavor: "latte", accent: "sky" },
 				}),
-				starlightImageZoom()
 			],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/dipe/' }],
 			lastUpdated: true,

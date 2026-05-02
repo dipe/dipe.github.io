@@ -15,11 +15,22 @@ Of course, you can also play with a model. And here, too, there is a huge
 variety. Solving shunting puzzles on a small scale at home on your own, or on a
 really large scale with lots of people at a *FREMO* meeting (see below):
 
-> We hire a large hall and assemble a layout from model railway modules with
-> matching end profiles. Trains then travel loooong distances – operated
-> according to a timetable.
->
-![FREMO Meeting](./fremotreffen.jpg)
+import { Card } from '@astrojs/starlight/components';
+import PhotoSwipeImage from '/src/components/PhotoSwipeImage.astro';
+import fremotreffen from './fremotreffen.jpg';
+
+<Card title="FREMO Meeting">
+
+
+    We hire a large hall and assemble a layout from model railway modules with
+    matching end profiles. Trains then travel loooong distances – operated
+    according to a timetable.
+
+    <PhotoSwipeImage 
+        src={fremotreffen} 
+        alt="Fremo Meeting" 
+    />
+</Card>
 
 ## fiNe-scale
 fiNe-scale (or FS160) is model railway construction in 1:160 scale (N gauge)
@@ -29,11 +40,19 @@ the philosophy extends to every aspect of the build—from track geometry and
 landscape design to the scratch-building of rolling stock and authentic
 operational practices.
 
-> Take a look at the bird's-eye view of the "Wohltorf" module below. This isn't a
-> drone photo of a real landscape; the module is simply sitting on the sunny
-> floor, and I took the photo from one meter height.
-> 
-> ![Wohltorf bird's-eye view](./vogelperspektive.jpg)
+import vogelperspektive from './vogelperspektive.jpg';
+
+<Card title="Photo-etched Parts">
+
+    Take a look at the bird's-eye view of the "Wohltorf" module below. This isn't a
+    drone photo of a real landscape; the module is simply sitting on the sunny
+    floor, and I took the photo from one meter height.
+
+    <PhotoSwipeImage 
+        src={vogelperspektive} 
+        alt="Wohltorf bird's-eye view" 
+    />
+</Card>
 
 ## Track Construction
 Standard N-gauge models are typically built to NEM standards (Normen
