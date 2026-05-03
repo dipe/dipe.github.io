@@ -10,7 +10,30 @@ import Default from '@astrojs/starlight/components/Footer.astro';
   <a href="/datenschutzerklaerung/">Datenschutzerklärung</a>
 </div>
 
+<div class="license-footer">
+  Unless otherwise stated, the work<br/>
+  <a href="/fine-scale/">fiNescale Railway Modelling</a>
+  by <a href="/">[dipe]</a><br/>
+  is licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a><br/>
+  <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+  <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+  <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+  <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+</div>
+
 <style>
+  .license-footer {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: var(--sl-text-sm);
+  }
+  .license-footer a {
+    color: var(--sl-color-gray-3);
+  }
+  .license-footer a:hover {
+    color: var(--sl-color-text-accent);
+  }
   .legal-footer {
     margin-top: 1rem;
     display: flex;
