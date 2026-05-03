@@ -24,6 +24,9 @@ export default defineConfig({
 				}),
 			],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/dipe/' }],
+			customCss: [
+		        '/src/styles/custom.css',
+      		],
 			lastUpdated: true,
 		}),
 	],
@@ -32,9 +35,10 @@ export default defineConfig({
 		[
 			rehypeExternalLinks,
 			{ 
-			content: { type: 'text', value: ' ↗' },
-			target: '_blank', 
-			rel: ['nofollow', 'noopener', 'noreferrer'] 
+				content: [],
+				target: '_blank', 
+				rel: ['nofollow', 'noopener', 'noreferrer'],
+				properties: { class: 'external-link' },
 			}
 		],
 	],

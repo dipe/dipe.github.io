@@ -2,42 +2,55 @@
 import { LinkCard } from '@astrojs/starlight/components';
 import { Icon } from '@astrojs/starlight/components';
 
-// Wir nehmen alle Standard-Props der LinkCard entgegen
 const props = Astro.props;
 ---
 
-<div class="external-card-container">
+<div class="external-card-final">
   <LinkCard 
     {...props} 
     target="_blank" 
     rel="noopener noreferrer" 
   />
-  <div class="external-indicator">
+  <div class="custom-overlay">
     <Icon name="external" size="1.2rem" />
   </div>
 </div>
 
 <style>
-  .external-card-container {
+  .external-card-final {
     position: relative;
     display: block;
   }
 
-  .external-indicator {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    pointer-events: none;
-    color: var(--sl-color-gray-3);
-    transition: transform 0.2s ease, color 0.3s ease;
+  /* Starlight Icons komplett entfernen */
+  .external-card-final :global(.sl-link-card svg) {
+    display: none !important;
   }
 
-  .external-card-container:hover .external-indicator {
+  /* Unser Icon rechts oben positionieren */
+  .custom-overlay {
+    position: absolute;
+    top: 1.1rem;      /* Abstand von oben */
+    right: 1.1rem;    /* Abstand von rechts */
+    pointer-events: none;
+    
+    /* Farbe auf Grau/Textfarbe setzen statt Blau */
+    color: var(--sl-color-gray-3); 
+    opacity: 0.8;
+    
+    display: flex;
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Hover-Effekt: Etwas deutlicher und in Akzentfarbe */
+  .external-card-final:hover .custom-overlay {
     color: var(--sl-color-accent-high);
+    opacity: 1;
     transform: translate(2px, -2px);
   }
 
-  .external-card-container :global(.sl-link-card) {
-    padding-inline-end: 3rem;
+  /* Text-Abstand oben/rechts anpassen, damit nichts überlappt */
+  .external-card-final :global(.sl-link-card .sl-flex) {
+    padding-inline-end: 2.5rem;
   }
 </style>
