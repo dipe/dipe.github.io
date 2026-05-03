@@ -12,10 +12,10 @@
   "dependencies": {
     "@astrojs/starlight": "^0.38.4",
     "@catppuccin/starlight": "^2.0.1",
-    "astro": "^6.1.9",
+    "astro": "^6.2.1",
     "photoswipe": "^5.4.4",
     "rehype-external-links": "^3.0.0",
-    "sharp": "^0.34.2",
+    "sharp": "^0.34.5",
     "starlight-image-zoom": "^0.14.1"
   }
 }
