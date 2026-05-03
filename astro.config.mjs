@@ -15,7 +15,7 @@ export default defineConfig({
 				replacesTitle: true,
       		},
 			components: {
-				Footer: './src/components/Footer.astro', // Diese Zeile hinzufügen
+				Footer: './src/components/Footer.astro',
 			},
 			plugins: [
 				starlightCatppuccin({
