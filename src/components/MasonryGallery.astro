@@ -9,9 +9,6 @@ const { images } = Astro.props;
 <div class="masonry-wrapper" id="pswp-gallery">
   {images.map((img) => (
     <figure class="masonry-item">
-      {/* img.src ist hier das Objekt vom Astro Image Service.
-        Wir nutzen .width und .height für die PhotoSwipe-Animation.
-      */}
       <a 
         href={img.src.src} 
         data-pswp-width={img.src.width} 
@@ -48,33 +45,6 @@ const { images } = Astro.props;
 
       imageClickAction: 'close',
       tapAction: 'close',
-      zoom: false,
-      secondaryZoomLevel: 1,
-      maxSpreadZoom: 1,
-    });
-
-    // Logik um die Captions in der Lightbox anzuzeigen
-    lightbox.on('uiRegister', function() {
-      lightbox.pswp.ui.registerElement({
-        name: 'custom-caption',
-        order: 9,
-        isAboveDelay: false,
-        tagName: 'div',
-        appendElementTo: 'pswp__scroll-wrap',
-        onInit: (el, pswp) => {
-          pswp.on('change', () => {
-            const currSlideElement = pswp.currSlide.data.element;
-            let captionHTML = '';
-            if (currSlideElement) {
-              const hiddenCaption = currSlideElement.querySelector('.pswp-caption-content');
-              if (hiddenCaption) {
-                captionHTML = hiddenCaption.innerHTML;
-              }
-            }
-            el.innerHTML = captionHTML;
-          });
-        }
-      });
     });
 
     lightbox.init();
@@ -121,20 +91,6 @@ const { images } = Astro.props;
     line-height: 1.4;
     color: var(--sl-color-gray-2);
     border-top: 1px solid var(--sl-color-gray-5);
-  }
-
-  /* Styling für die Caption INNERHALB der Lightbox */
-  :global(.pswp__custom-caption) {
-    background: rgba(0, 0, 0, 0.75);
-    font-size: 1rem;
-    color: #fff;
-    width: 100%;
-    padding: 12px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    text-align: center;
-    z-index: 1000;
   }
 
   @media (max-width: 768px) { .masonry-wrapper { column-count: 2; } }

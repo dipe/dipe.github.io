@@ -1,9 +1,5 @@
 ---
-// src/components/PhotoSwipeImage.astro
 import { Image } from 'astro:assets';
-
-// HIER gehört der CSS-Import hin! 
-// Astro sorgt dafür, dass das CSS im <head> der Seite landet.
 import 'photoswipe/style.css'; 
 
 interface Props {
@@ -34,7 +30,6 @@ const { src, alt, caption, width = 800 } = Astro.props;
   import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
   function initSinglePswp() {
-    // Falls keine Bilder da sind, nichts tun
     if (!document.querySelector('.pswp-trigger')) return;
 
     const lightbox = new PhotoSwipeLightbox({
@@ -42,15 +37,10 @@ const { src, alt, caption, width = 800 } = Astro.props;
       children: 'a.pswp-trigger',
       pswpModule: () => import('photoswipe'),
       
-      // Deine gewünschten Einstellungen:
       imageClickAction: 'close',
       tapAction: 'close',
-      zoom: false,
-      secondaryZoomLevel: 1,
-      maxSpreadZoom: 1,
     });
 
-    // Caption-Logik
     lightbox.on('uiRegister', function() {
       lightbox.pswp.ui.registerElement({
         name: 'custom-caption',
@@ -69,24 +59,6 @@ const { src, alt, caption, width = 800 } = Astro.props;
     lightbox.init();
   }
 
-  // Initialisierung für Starlight (funktioniert beim ersten Laden und beim Navigieren)
   initSinglePswp();
   document.addEventListener('astro:page-load', initSinglePswp);
 </script>
-
-<style>
-  /* Dein CSS für die Komponente */
-  .pswp-single-wrapper { margin: 2rem 0; text-align: center; }
-  .pswp-trigger { display: inline-block; cursor: zoom-in; }
-  
-  /* Wichtig: Styles für die Caption in der Lightbox */
-  :global(.pswp__custom-caption) {
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 1rem;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-  }
-</style>
