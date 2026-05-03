@@ -26,19 +26,20 @@ const { src, alt, caption, width = 800 } = Astro.props;
   </a>
 </div>
 
-<style>
-  .pswp-single-wrapper{
+<style is:global>
+  .pswp-single-wrapper {
     border-radius: 0.5em;
     background: var(--sl-color-gray-6);
     overflow: hidden;
     border: 1px solid var(--sl-color-gray-5);
     transition: transform 0.3s ease;
+    display: block; /* Sicherstellen, dass es sich wie ein Container verhält */
   }
   .pswp-single-wrapper:hover {
     transform: translateY(-4px);
     border-color: var(--sl-color-accent);
   }
-</sytle>
+</style>
 
 <script>
   import PhotoSwipeLightbox from 'photoswipe/lightbox';
