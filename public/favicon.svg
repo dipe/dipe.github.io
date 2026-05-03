@@ -42,15 +42,27 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="4.1614583"
-     inkscape:cx="70.888611"
-     inkscape:cy="28.235294"
+     inkscape:zoom="16.645833"
+     inkscape:cx="18.262829"
+     inkscape:cy="19.854819"
      inkscape:window-width="1694"
      inkscape:window-height="1069"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
+     inkscape:current-layer="svg2"
+     showguides="true">
+    <sodipodi:guide
+       position="14.287078,21.929678"
+       orientation="0,-1"
+       id="guide1"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="14.266427,10.060857"
+       orientation="0,-1"
+       id="guide2"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <rect
      width="32"
      height="32"
@@ -59,7 +71,7 @@
      id="rect1"
      x="0"
      y="0"
-     style="fill:#245ab2;fill-opacity:1;stroke:url(#linearGradient2);stroke-width:0.289;stroke-dasharray:none"
+     style="fill:#b2245f;fill-opacity:1;stroke:url(#linearGradient2);stroke-width:0;stroke-dasharray:none"
      ry="4" />
   <text
      x="15.999999"
@@ -69,15 +81,39 @@
      font-size="48.5789px"
      font-weight="900"
      letter-spacing="-0.5"
-     style="font-weight:900;font-size:11.7427px;font-family:'Arial Black', sans-serif;letter-spacing:-0.120862;text-anchor:middle;fill:#ffffff;stroke-width:0.978562"
+     style="font-weight:900;font-size:11.7427px;font-family:'Arial Black', sans-serif;letter-spacing:-0.120862;text-anchor:middle;fill:#f4eed7;fill-opacity:1;stroke-width:0;stroke-dasharray:none"
      text-anchor="middle"
      id="text2"><tspan
-       style="fill:#ff8000;fill-opacity:1;stroke-width:0.978562"
-       id="tspan1">[</tspan><tspan
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.7427px;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke-width:0.978562"
-       id="tspan3">dipe</tspan><tspan
-       style="fill:#ff8000;fill-opacity:1;stroke-width:0.978562"
-       id="tspan2">]</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:Serif;-inkscape-font-specification:'Serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#f4eed7;fill-opacity:1;stroke-width:0;stroke-dasharray:none"
+       id="tspan3">dipe</tspan></text>
+  <text
+     x="2.5343468"
+     y="17.277575"
+     fill="#ffffff"
+     font-family="'Arial Black', sans-serif"
+     font-size="48.5789px"
+     font-weight="900"
+     letter-spacing="-0.5"
+     style="font-weight:900;font-size:13.7405px;font-family:'Arial Black', sans-serif;letter-spacing:-0.141424;text-anchor:middle;fill:#4290e7;stroke-width:1.14505;fill-opacity:1"
+     text-anchor="middle"
+     id="text2-6"
+     transform="scale(0.85460673,1.1701289)"><tspan
+       style="fill:#4290e7;fill-opacity:1;stroke-width:1.14505"
+       id="tspan1-7">[</tspan></text>
+  <text
+     x="34.411938"
+     y="17.277575"
+     fill="#ffffff"
+     font-family="'Arial Black', sans-serif"
+     font-size="48.5789px"
+     font-weight="900"
+     letter-spacing="-0.5"
+     style="font-weight:900;font-size:13.7405px;font-family:'Arial Black', sans-serif;letter-spacing:-0.141424;text-anchor:middle;fill:#4290e7;stroke-width:1.14505;fill-opacity:1"
+     text-anchor="middle"
+     id="text2-6-6"
+     transform="scale(0.85460673,1.1701289)"><tspan
+       style="fill:#4290e7;fill-opacity:1;stroke-width:1.14505"
+       id="tspan2-3-1">]</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48.5789px;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#1d5c94;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"

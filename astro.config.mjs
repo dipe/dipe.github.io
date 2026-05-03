@@ -11,7 +11,7 @@ export default defineConfig({
 		starlight({
 			title: '[dipe]',
 	     	logo: {
-        		src: './src/assets/dipe-logo.svg',
+        		src: './src/assets/dipe-logo.png',
 				replacesTitle: true,
       		},
 			components: {
