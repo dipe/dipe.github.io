@@ -27,17 +27,27 @@ that!
 
 import ExternalLinkCard from '/src/components/ExternalLinkCard.astro';
 
-<ExternalLinkCard title="Modulkasten.pdf" description="In-depth feature on building the
-Wohltorf module baseboard (german only)." href="/Modulkasten.pdf" />
+<ExternalLinkCard 
+  title="Modulkasten.pdf" 
+  description="In-depth feature on building the Wohltorf module baseboard (german 
+  only)." 
+  href="/Modulkasten.pdf" 
+/>
 
-## Impressions
-
+## Etching Parts
 At the time, I used photo-etching techniques extensively. Look at the fine details: 
 railings, fences, antennas, and even the crossing keeper’s bicycle 
 leaning against his hut. The brick walls of the bridge and the cobbled street 
 were also etched and then used as masters for casting. 
 
-Click to zoom!
+<ExternalLinkCard 
+  title="Aetztechnik_Mini-Howto.pdf" 
+  description=" I still have a mini how-to guide from back then on photo-etching 
+  techniques. (german only)." 
+  href="/Aetztechnik_Mini-Howto.pdf"
+/>
+
+## Impressions
 
 import MasonryGallery from '/src/components/MasonryGallery.astro';
 import bild0 from './0.jpg';
@@ -56,20 +66,21 @@ import bild12 from './12.jpg';
 import bild13 from './13.jpg';
 import bild14 from './14.jpg';
 import bild15 from './15.jpg';
+import lampen from './Lampen.jpg';
 
 <MasonryGallery images={[
   { src: bild9, alt: 'Impressionen vom Modul Wohltorf' },
-  { src: bild1, alt: 'Impressionen vom Modul Wohltorf' },
   { src: bild2, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: bild1, alt: 'Impressionen vom Modul Wohltorf' },
   { src: bild15, alt: 'Impressionen vom Modul Wohltorf' },
   { src: bild3, alt: 'Impressionen vom Modul Wohltorf' },
   { src: bild14, alt: 'Impressionen vom Modul Wohltorf' },
   { src: bild4, alt: 'Impressionen vom Modul Wohltorf' },
+  { src: lampen, alt: 'Impressionen vom Modul Wohltorf' },
   { src: bild7, alt: 'Impressionen vom Modul Wohltorf' },
   { src: etched_bicycle, alt: 'Impressionen vom Modul Wohltorf' },
   { src: bild0, alt: 'Impressionen vom Modul Wohltorf' },
 ]} />
-
 
 ## The Real-Life Prototype
 <MasonryGallery images={[
