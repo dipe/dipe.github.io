@@ -2,10 +2,9 @@
 import type { Props } from '@astrojs/starlight/props';
 import Default from '@astrojs/starlight/components/Footer.astro';
 
-const { slug } = Astro.props;
 const pathname = Astro.url.pathname;
 
-const isHomepage = pathname === '/'
+const isFinescale = pathname.startsWith('/fine-scale');
 ---
 
 <Default {...Astro.props} />
@@ -16,7 +15,7 @@ const isHomepage = pathname === '/'
   <a href="/datenschutzerklaerung/">Datenschutzerklärung</a>
 </div>
 
-{!isHomepage && (
+{ isFinescale && (
   <div class="license-footer">
     Unless otherwise stated, the work<br/>
     <a href="/fine-scale/">fiNescale Railway Modelling</a>
