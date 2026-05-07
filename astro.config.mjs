@@ -3,10 +3,11 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightCatppuccin from '@catppuccin/starlight'
 import rehypeExternalLinks from 'rehype-external-links';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://dipe.github.io',
+	site: 'https://dipe.de',
 	integrations: [
 		starlight({
 			title: '[dipe]',
@@ -29,6 +30,7 @@ export default defineConfig({
       		],
 			lastUpdated: true,
 		}),
+		sitemap(),
 	],
 	markdown: {
     	rehypePlugins: [
