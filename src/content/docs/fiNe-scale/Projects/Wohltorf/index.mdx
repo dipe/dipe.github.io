@@ -22,9 +22,12 @@ mechanism.
 
 import { Card } from '@astrojs/starlight/components';
 import wohltorf21 from './wohltorf21.mp4';
+import wohltorf21_vorschau from './wohltorf21.jpg';
 
 <Card title="Sound On! Realistic Level Crossing Action at Wohltorf">
-  <video controls width="100%">
+  <video controls 
+  poster={wohltorf21_vorschau.src} 
+  style="border-radius: 0.5rem; overflow: hidden;">
     <source src={wohltorf21} type="video/mp4" />
   </video>
 
