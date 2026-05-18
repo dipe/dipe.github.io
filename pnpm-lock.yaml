@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@astrojs/starlight':
         specifier: ^0.39.2
-        version: 0.39.2(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3)
+        version: 0.39.2(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3)
       '@catppuccin/starlight':
         specifier: ^2.0.1
-        version: 2.0.1(@astrojs/starlight@0.39.2(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3))(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))
+        version: 2.0.1(@astrojs/starlight@0.39.2(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3))(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))
       astro:
-        specifier: ^6.3.3
-        version: 6.3.3(@types/node@24.12.2)(rollup@4.60.2)
+        specifier: ^6.3.4
+        version: 6.3.4(@types/node@24.12.2)(rollup@4.60.2)
       photoswipe:
         specifier: ^5.4.4
         version: 5.4.4
@@ -28,7 +28,7 @@ importers:
         version: 0.34.5
       starlight-image-zoom:
         specifier: ^0.14.1
-        version: 0.14.1(@astrojs/starlight@0.39.2(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3))
+        version: 0.14.1(@astrojs/starlight@0.39.2(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3))
 
 packages:
 
@@ -739,8 +739,8 @@ packages:
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0 || ^6.0.0-beta
 
-  astro@6.3.3:
-    resolution: {integrity: sha512-wvLIZQYbBZt6U8gyflBW4SLBypaqdwLZUH93rT3oT53cmQ0bTGubvMAGjqBRoheOYzYcTJZtW6czztzbu4kQ5g==}
+  astro@6.3.4:
+    resolution: {integrity: sha512-TXUu9Z6HE/M9MkUEbwIQBnBY2jhcuCalz0ACDb+dUeV27iXf3/aZ3uYjLXgn92W/JxImPA1oG+nZx+N9o0+B+Q==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1882,12 +1882,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@5.0.4(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))':
+  '@astrojs/mdx@5.0.4(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))':
     dependencies:
       '@astrojs/markdown-remark': 7.1.1
       '@mdx-js/mdx': 3.1.1
       acorn: 8.16.0
-      astro: 6.3.3(@types/node@24.12.2)(rollup@4.60.2)
+      astro: 6.3.4(@types/node@24.12.2)(rollup@4.60.2)
       es-module-lexer: 2.1.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -1915,17 +1915,17 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 4.4.2
 
-  '@astrojs/starlight@0.39.2(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3)':
+  '@astrojs/starlight@0.39.2(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3)':
     dependencies:
       '@astrojs/markdown-remark': 7.1.1
-      '@astrojs/mdx': 5.0.4(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))
+      '@astrojs/mdx': 5.0.4(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))
       '@astrojs/sitemap': 3.7.2
       '@pagefind/default-ui': 1.5.2
       '@types/hast': 3.0.4
       '@types/js-yaml': 4.0.9
       '@types/mdast': 4.0.4
-      astro: 6.3.3(@types/node@24.12.2)(rollup@4.60.2)
-      astro-expressive-code: 0.42.0(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))
+      astro: 6.3.4(@types/node@24.12.2)(rollup@4.60.2)
+      astro-expressive-code: 0.42.0(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))
       bcp-47: 2.1.0
       hast-util-from-html: 2.0.3
       hast-util-select: 6.0.4
@@ -1975,10 +1975,10 @@ snapshots:
     dependencies:
       fontkitten: 1.0.3
 
-  '@catppuccin/starlight@2.0.1(@astrojs/starlight@0.39.2(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3))(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))':
+  '@catppuccin/starlight@2.0.1(@astrojs/starlight@0.39.2(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3))(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))':
     dependencies:
-      '@astrojs/starlight': 0.39.2(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3)
-      astro: 6.3.3(@types/node@24.12.2)(rollup@4.60.2)
+      '@astrojs/starlight': 0.39.2(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3)
+      astro: 6.3.4(@types/node@24.12.2)(rollup@4.60.2)
 
   '@clack/core@1.3.0':
     dependencies:
@@ -2441,12 +2441,12 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-expressive-code@0.42.0(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2)):
+  astro-expressive-code@0.42.0(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2)):
     dependencies:
-      astro: 6.3.3(@types/node@24.12.2)(rollup@4.60.2)
+      astro: 6.3.4(@types/node@24.12.2)(rollup@4.60.2)
       rehype-expressive-code: 0.42.0
 
-  astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2):
+  astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.9.1
@@ -3910,9 +3910,9 @@ snapshots:
 
   space-separated-tokens@2.0.2: {}
 
-  starlight-image-zoom@0.14.1(@astrojs/starlight@0.39.2(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3)):
+  starlight-image-zoom@0.14.1(@astrojs/starlight@0.39.2(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3)):
     dependencies:
-      '@astrojs/starlight': 0.39.2(astro@6.3.3(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3)
+      '@astrojs/starlight': 0.39.2(astro@6.3.4(@types/node@24.12.2)(rollup@4.60.2))(typescript@5.9.3)
       mdast-util-mdx-jsx: 3.2.0
       rehype-raw: 7.0.0
       unist-util-visit: 5.1.0
