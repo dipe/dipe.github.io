@@ -15,9 +15,11 @@ const hasSlot = Astro.slots.has('default');
      target="_blank" class="pswp-trigger">
     <Image src={src} alt={alt} width={width} />
   </a>
-  <figcaption class="pswp-caption">
-    {hasSlot ? <slot /> : caption}
-  </figcaption>
+  {(hasSlot || caption) && (
+    <figcaption class="pswp-caption">
+      {hasSlot ? <slot /> : caption}
+    </figcaption>
+  )}
 </figure>
 
 <style is:global>
