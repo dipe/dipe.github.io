@@ -1,30 +1,24 @@
 ---
 import { Image } from 'astro:assets';
 import 'photoswipe/style.css'; 
-
 interface Props {
   src: any; 
   alt: string;
   caption?: string;
   width?: number;
 }
-
 const { src, alt, caption, width = 800 } = Astro.props;
+const hasSlot = Astro.slots.has('default');
 ---
-
-<div class="pswp-single-wrapper">
-  <a 
-    href={src.src} 
-    data-pswp-width={src.width} 
-    data-pswp-height={src.height} 
-    target="_blank"
-    class="pswp-trigger"
-  >
+<figure class="pswp-single-wrapper">
+  <a href={src.src} data-pswp-width={src.width} data-pswp-height={src.height}
+     target="_blank" class="pswp-trigger">
     <Image src={src} alt={alt} width={width} />
-    {caption && <figcaption class="pswp-caption">{caption}</figcaption>}
-    {caption && <span class="pswp-caption-content" style="display:none;">{caption}</span>}
   </a>
-</div>
+  <figcaption class="pswp-caption">
+    {hasSlot ? <slot /> : caption}
+  </figcaption>
+</figure>
 
 <style is:global>
   .pswp-single-wrapper {
@@ -34,10 +28,24 @@ const { src, alt, caption, width = 800 } = Astro.props;
     border: 1px solid var(--sl-color-gray-5);
     transition: transform 0.3s ease;
     display: block;
+    margin: 1.5rem 0;
   }
   .pswp-single-wrapper:hover {
     transform: translateY(-4px);
     border-color: var(--sl-color-accent);
+  }
+  .pswp-single-wrapper a.pswp-trigger {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+  .pswp-caption {
+    padding: 0.5em 0.75em;
+    font-size: 0.85em;
+    color: var(--sl-color-gray-2);
+    text-align: center;
+    font-style: italic;
+    margin: 0;
   }
 </style>
 
@@ -46,16 +54,13 @@ const { src, alt, caption, width = 800 } = Astro.props;
 
   function initSinglePswp() {
     if (!document.querySelector('.pswp-trigger')) return;
-
     const lightbox = new PhotoSwipeLightbox({
-      gallery: 'body', 
+      gallery: 'body',
       children: 'a.pswp-trigger',
       pswpModule: () => import('photoswipe'),
-      
       imageClickAction: 'close',
       tapAction: 'close',
     });
-
     lightbox.on('uiRegister', function() {
       lightbox.pswp.ui.registerElement({
         name: 'custom-caption',
@@ -65,12 +70,12 @@ const { src, alt, caption, width = 800 } = Astro.props;
         onInit: (el, pswp) => {
           pswp.on('change', () => {
             const currSlideElement = pswp.currSlide.data.element;
-            el.innerHTML = currSlideElement?.querySelector('.pswp-caption-content')?.innerHTML || '';
+            const fig = currSlideElement.closest('figure');
+            el.innerHTML = fig?.querySelector('.pswp-caption')?.innerHTML || '';
           });
         }
       });
     });
-
     lightbox.init();
   }
 
