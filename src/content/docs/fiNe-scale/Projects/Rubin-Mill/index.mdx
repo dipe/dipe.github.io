@@ -4,6 +4,8 @@ description: About my FiNe-Scale Model Project »Rubin Mill«
 ---
 
 import { Badge } from '@astrojs/starlight/components';
+import { Card } from '@astrojs/starlight/components';
+import PhotoSwipeImage from '/src/components/PhotoSwipeImage.astro';
 
 <Badge text="As of May 2026, this module is in the planning stage. I will be posting regular updates here throughout the year." variant="note" />
 
@@ -37,9 +39,11 @@ The model is therefore, just like its name, purely imaginary. The track plan is
 based on the [Timesaver by John Whitby
 Allen](https://de.wikipedia.org/wiki/Timesaver).
 
-> Fantasy logo created by Gemini AI \(Nano Banana 2\)
->
-> ![Rubin Mill Logo](./rubinmehl-logo.png)
+import rubinmehl_logo from './rubinmehl-logo.png';
+
+
+<PhotoSwipeImage src={rubinmehl_logo} alt="Rubinmehl Logo" 
+  caption="Fantasy logo created by Gemini AI (Nano Banana 2)"/>
 
 In the original, the main building is about 100 metres long, 20 m deep and 35 m
 high. In the model, I would probably shorten it in length while taking
@@ -52,41 +56,30 @@ the back side convex for aesthetic reasons. The tallest structure will be the
 chimney at 43 cm, followed by Silos at 34 cm and the main building at 19
 cm.
 
-import { Card } from '@astrojs/starlight/components';
-import PhotoSwipeImage from '/src/components/PhotoSwipeImage.astro';
-import design from './design.png';
-
 Click to zoom!
 
-<PhotoSwipeImage 
-    src={design} 
-    alt="Design" 
-/>
+import design from './design.png';
 
-Description from left to right: From left to right: Flour silo (Mehlsilo),
-Pneumatic loading system (Druck-Verladeanlage), Loading ramp (Laderampe), Main
-building (Haupthaus), Mill tower (Mühlenturm), Bulk loading system
-(Schüttgut-Verladeanlage), Grain elevator (Elevator), Grain silo
-(Getreidespeicher), Grain bunker  (Getreidebunker), Crane (Kran), Boiler house
-(Kesselhaus), Heavy fuel oil tanks (Schweröl-Tanks), Locomotive shed
-(Lokschuppen), below Quay and Water
+<PhotoSwipeImage src={design} alt="Design">
+  Description from left to right: From left to right: Flour silo (Mehlsilo),
+  Pneumatic loading system (Druck-Verladeanlage), Loading ramp (Laderampe), Main
+  building (Haupthaus), Mill tower (Mühlenturm), Bulk loading system
+  (Schüttgut-Verladeanlage), Grain elevator (Elevator), Grain silo
+  (Getreidespeicher), Grain bunker  (Getreidebunker), Crane (Kran), Boiler house
+  (Kesselhaus), Heavy fuel oil tanks (Schweröl-Tanks), Locomotive shed
+  (Lokschuppen), below Quay and Water."
+</PhotoSwipeImage>
 
 ## The Tack Layout
-The track plan is inspired by the Timesaver, to be built with 190 m radii in
-Code 40 N scale track (FS160).
 
 The track plan is my own free interpretation, inspired by the Timesaver.
 Construction features a minimum prototypical radius of 190&nbsp;m
-(≙&nbsp;~119&nbsp;cm) with Code&nbsp;40 N scale track (FS160). The industrial site is
-connected to an imaginary through-line of the Hamburg Harbour Railway (Hamburger
-Hafenbahn).
+(≙&nbsp;~119&nbsp;cm) with Code&nbsp;40 N scale track (FS160). The industrial
+site is connected to an imaginary through-line of the Hamburger Hafenbahn.
 
 import layout from './layout.png';
 
-<PhotoSwipeImage 
-    src={layout} 
-    alt="Layout" 
-/>
+<PhotoSwipeImage src={layout} alt="Layout"/>
 
 | **Track** | **Track length** |  **Platform length** | **Note** |
 | :---: | :---- | :---- | :---- |
@@ -102,28 +95,29 @@ import layout from './layout.png';
 ## Operations
 The following operating procedures are planned:
 
-**Goods receipt**
-- Grain (wheat, rye, maize) mainly by coastal motor vessel and barges at the quay  
-- Additives (baking agents, vitamins), pallets and sacks: covered goods wagons
-  (Gs), track 2b
-- Grain (wheat, rye, corn) by self-unloading wagons with swivel roofs (Ktmm,
-  Tdgs), track 3c
-
 **Goods dispatch**
-- Flour in bulk (for large bakeries), Ucs dust container wagon, track 2a 
+- Flour in bulk (for large bakeries), Ucs dust container wagon pneumatic
+  loading, track 2a 
 - Flour and bran in sacks, covered goods wagons (Gs), track 2b
-- Mill products for export (via quay): sliding wall wagons (Hs), track 2b
+- Mill products for export (via quay) on pallets: sliding wall wagons (Hs), track 2b
 - Direct transfer: If the mill's silos are full or the grain is not to be
   processed in this mill but sent on to another facility (e.g. inland), it is
   loaded directly from the crane into the waiting hopper wagons (Tdgs) at the
   quay, track 3b  
 
+**Goods receipt**
+- Grain (wheat, rye, maize) mainly by coastal motor vessel and barges at the quay (elevator)
+- Additives (baking agents, vitamins), pallets and sacks: covered goods wagons
+  (Gs), track 2b
+- Grain (wheat, rye, corn) by self-unloading wagons with swivel roofs (Ktmm,
+  Tdgs), track 3c
+
 **Operating resources**
-- Heavy fuel oil (for own power station system): Tank wagon (Z), track 3e
 - Packaging material: sacks, pallets, cardboard boxes, covered goods wagons
   (Gs), track 2b
 - Machine parts / maintenance: Staggered wagons (Ks) for larger plant components
   or crates, track 3d
+- Heavy fuel oil (for own power station system): Tank wagon (Z), track 3e
 
 
 ### Freight Transport in table form
@@ -148,13 +142,9 @@ could look like this:
 
 import fremo_adapter from './fremo-adapter.png';
 
-<PhotoSwipeImage 
-    src={fremo_adapter} 
-    alt="Fremo adapter"
-/>
-
-Green: FREMO module adapter, pure landscape; brown: the two segment boxes; black:
-tracks
+<PhotoSwipeImage src={fremo_adapter} alt="Fremo adapter">
+  Green: FREMO module adapter, pure landscape; brown: the two segment boxes; black: tracks
+</PhotoSwipeImage>
 
 The FREMO module adapter will be 100 mm high, and the segment boxes will be
 about 70 mm or so high, so that they can rest on the adapter in a corresponding
@@ -166,34 +156,45 @@ concept of the curved track's edge aligning with the segments appealing
 (referencing the Jigsaw approach, Iain Rice, *Layout Design*, 2010, page 50).
 
 ## Pictures of the Prototype
-> View from the east: the quay and the main building (foreground, centre), Silo
-> I with the *Aurora* logo (centre, background), Silo II (half-right behind the
-> main building), Silo III (behind Silo II), elevator crane (yellow, right)
->
-> ![Aurora mill main building](./aurora-mill-1.jpg)
 
-> View from the south: \[Residential building, harbour crane (left)\], Plange's
-> villa (centre left), one of the newer Silos (centre), Silo III (right)
->
-> ![Aurora mill Plange's villa, Silos](./aurora-mill-2.jpg)
+import aurora_mill_1 from './aurora-mill-1.jpg';
 
-> The elevator (grain suction device for unloading ships)
->
-> ![The elevator](./aurora-mill-3.jpg)
+<PhotoSwipeImage alt="Aurora mill main building" src={aurora_mill_1} >
+  View from the east: the quay and the main building (foreground, centre), Silo
+  I with the *Aurora* logo (centre, background), Silo II (half-right behind the
+  main building), Silo III (behind Silo II), elevator crane (yellow, right)
+</PhotoSwipeImage>
 
-> The boiler house (foreground, centre), the main building (left), more new
-> silos (background)
->
-> ![Boiler house](./aurora-mill-4.jpg)
+import aurora_mill_2 from './aurora-mill-2.jpg';
 
-> The [location in Google
-> Maps](https://www.google.de/maps/place/Trettaustra%C3%9Fe+49,+21107+Hamburg/@53.4938758,9.9832857,313m/data=!3m1!1e3!4m6!3m5!1s0x47b191d58cc0f8c3:0x53919d0969e482e8!8m2!3d53.4930844!4d9.9841206!16s%2Fg%2F11bw408d2s?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D)
->
-> ![Google maps view](./google-maps.png)
+<PhotoSwipeImage alt="Aurora mill Plange's villa, Silos" src={aurora_mill_2}>
+  View from the south: \[Residential building, harbour crane (left)\], Plange's
+  villa (centre left), one of the newer Silos (centre), Silo III (right)
+</PhotoSwipeImage>
+
+import aurora_mill_3 from './aurora-mill-3.jpg';
+
+<PhotoSwipeImage alt="The elevator" src={aurora_mill_3}>
+  The elevator (grain suction device for unloading ships)
+</PhotoSwipeImage>
+
+import aurora_mill_4 from './aurora-mill-4.jpg';
+
+<PhotoSwipeImage alt="Boiler house" src={aurora_mill_4}>
+  The boiler house (foreground, centre), the main building (left), more new
+  silos (background)
+</PhotoSwipeImage>
+
+import google_maps from './google-maps.png';
+
+<PhotoSwipeImage alt="Google maps view" src={google_maps}>
+  The [location in Google Maps](https://www.google.de/maps/place/Trettaustra%C3%9Fe+49,+21107+Hamburg/@53.4938758,9.9832857,313m/data=!3m1!1e3!4m6!3m5!1s0x47b191d58cc0f8c3:0x53919d0969e482e8!8m2!3d53.4930844!4d9.9841206!16s%2Fg%2F11bw408d2s?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D)
+</PhotoSwipeImage>
+
 
 ## Version history
 
 | **Date** | **Description** |
 | :---: | :---- |
 | **2026-05-18:** | This is the 7th iteration |
-| **2026-03-05:** | [here is the 4th iteration](./archive/version-4/) |
+| **2026-03-05:** | [Here is the previous iteration (#4)](./archive/version-4/) |
