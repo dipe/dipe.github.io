@@ -54,30 +54,44 @@ const hasSlot = Astro.slots.has('default');
 <script>
   import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
+  let lightbox = null;
+  let popstateHandler = null;
+
   function initSinglePswp() {
     if (!document.querySelector('.pswp-trigger')) return;
-    const lightbox = new PhotoSwipeLightbox({
+
+  lightbox?.destroy();
+    if (popstateHandler) {
+      window.removeEventListener('popstate', popstateHandler);
+      popstateHandler = null;
+    }
+
+    lightbox = new PhotoSwipeLightbox({
       gallery: 'body',
       children: 'a.pswp-trigger',
       pswpModule: () => import('photoswipe'),
       imageClickAction: 'close',
       tapAction: 'close',
+      history: false,
     });
-    lightbox.on('uiRegister', function() {
-      lightbox.pswp.ui.registerElement({
-        name: 'custom-caption',
-        order: 9,
-        tagName: 'div',
-        appendElementTo: 'pswp__scroll-wrap',
-        onInit: (el, pswp) => {
-          pswp.on('change', () => {
-            const currSlideElement = pswp.currSlide.data.element;
-            const fig = currSlideElement.closest('figure');
-            el.innerHTML = fig?.querySelector('.pswp-caption')?.innerHTML || '';
-          });
+
+    lightbox.on('beforeOpen', () => {
+      history.pushState({ pswp: true }, '', '#lightbox');
+      
+      const popstateHandler = () => {
+        if (lightbox?.pswp) {
+          lightbox.pswp.close();
         }
-      });
+      };
+      window.addEventListener('popstate', popstateHandler, { once: true });
     });
+
+    lightbox.on('close', () => {
+      if (location.hash === '#lightbox') {
+        history.back();
+      }
+    });
+
     lightbox.init();
   }
 
