@@ -37,22 +37,44 @@ const { images } = Astro.props;
 <script>
   import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
+  let lightbox = null;
+
   function initPhotoSwipe() {
-    const lightbox = new PhotoSwipeLightbox({
+    if (!document.querySelector('#pswp-gallery')) return;
+
+    lightbox?.destroy();
+
+    lightbox = new PhotoSwipeLightbox({
       gallery: '#pswp-gallery',
       children: 'a.pswp-link',
       pswpModule: () => import('photoswipe'),
-
       imageClickAction: 'close',
       tapAction: 'close',
+      history: false,
+    });
+
+    lightbox.on('beforeOpen', () => {
+      history.pushState({ pswp: true }, '', '#lightbox');
+
+      const popstateHandler = () => {
+        if (lightbox?.pswp) {
+          lightbox.pswp.close();
+        }
+      };
+      window.addEventListener('popstate', popstateHandler, { once: true });
+    });
+
+    lightbox.on('close', () => {
+      if (location.hash === '#lightbox') {
+        history.back();
+      }
     });
 
     lightbox.init();
   }
 
-  // Unterstützung für Starlight (View Transitions / SPA-Navigation)
   initPhotoSwipe();
-  document.addEventListener('astro:after-swap', initPhotoSwipe);
+  document.addEventListener('astro:page-load', initPhotoSwipe);
 </script>
 
 <style>
