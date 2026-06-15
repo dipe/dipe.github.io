@@ -1,0 +1,215 @@
+---
+title: Rubin Mill – A FiNescale Shunting Game with FREMO Adapter 
+description: About my FREMO FiNescale Model Project »Rubin Mill«
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Card } from '@astrojs/starlight/components';
+import PhotoSwipeImage from '/src/components/PhotoSwipeImage.astro';
+
+<Aside type="note" title="Planning Status">
+  As of May 2026, this module is in the planning stage. I will be posting regular updates here throughout the year.
+</Aside>
+
+# The Idea
+Inspired by John Whitby Allen's [Timesaver shunting
+puzzle](https://de.wikipedia.org/wiki/Timesaver), I developed a concept for a
+relatively small shunting game suitable for my living room. I have an ideal,
+compact space on the wall for two segment boxes, each measuring approximately
+120 cm by 32 cm, which can be stored vertically one above the other. For
+operation, one box will be taken down and connected to the other to create the
+layout.
+
+As a member of FREMO, I would like to use this model as a module at meetings. To
+that end, I have designed an adapter (see below). For this reason, the model
+also features a through track to which it is connected. Naturally, the model is
+not optimized for operational throughput, as it is intended to be a shunting
+puzzle. However, unlike the original Timesaver, the track lengths are
+dimensioned in such a way that I believe meaningful operation is possible even
+at a FREMO meeting. To increase the difficulty level during shunting puzzles,
+the longer tracks can simply be occupied with wagons so that the available space
+becomes tight—exactly as the original Timesaver intends.
+
+The model recreates an industrial siding within the Hamburger Hafenbahn
+network. But see for yourself...
+
+# The Subject
+My shunting game, which I will call "Rubin Mill", is inspired by the Aurora
+Mühle (formerly [Diamantmehl](https://de.wikipedia.org/wiki/Diamantmehl) Mill).
+This mill is located on the [Rethe](https://de.wikipedia.org/wiki/Rethe), a
+connecting waterway in the Port of Hamburg, in
+[Hamburg-Wilhelmsburg](https://de.wikipedia.org/wiki/Hamburg-Wilhelmsburg), and
+features quay facilities.
+
+Several parts of the complex are listed buildings (historically preserved),
+which makes them attractive to replicate, including the main building
+(1953/1954), the boiler house (1896/1922), a residential building (1904), and
+two of five silos \(silo II and silo III, 1934\)
+
+Notably, the mill's water side is protected from flooding by a 5-metre-high
+concrete wall above a sheet pile wall. However, there is no longer any railway
+connection, and no visible traces of one remain.
+
+The model is therefore, just like its name, purely imaginary. The track plan is
+based on the [Timesaver by John Whitby
+Allen](https://de.wikipedia.org/wiki/Timesaver).
+
+import rubinmehl_logo from './rubinmehl-logo.png';
+
+<PhotoSwipeImage src={rubinmehl_logo} alt="Rubinmehl Logo" 
+  caption="Fantasy logo created by Gemini AI (Nano Banana 2)"/>
+
+In the original, the main building is about 100 metres long, 20 m deep and 35 m
+high. In the model, I would probably shorten it in length while taking
+proportions into account. One Silo (no. III) would be reduced in size. The
+concrete wall in front will be reduced in height. 
+
+# My design
+The design calls for two trapezoidal segments, with the front side concave and
+the back side convex for aesthetic reasons. The tallest structure will be the
+chimney at 43 cm, followed by Silos at 34 cm and the main building at 19
+cm.
+
+Click to zoom!
+
+import design from './design.png';
+
+<PhotoSwipeImage src={design} alt="Design">
+  Description from left to right: From left to right: Flour silo (Mehlsilo),
+  Pneumatic loading system (Druck-Verladeanlage), Loading ramp (Laderampe), Main
+  building (Haupthaus), Mill tower (Mühlenturm), Bulk loading system
+  (Schüttgut-Verladeanlage), Grain elevator (Elevator), Grain silo
+  (Getreidespeicher), Grain bunker  (Getreidebunker), Crane (Kran), Boiler house
+  (Kesselhaus), Heavy fuel oil tanks (Schweröl-Tanks), Locomotive shed
+  (Lokschuppen), below Quay and Water."
+</PhotoSwipeImage>
+
+# The Tack Layout
+
+The track plan is my own free interpretation, inspired by the Timesaver.
+Construction features a minimum prototypical radius of 190&nbsp;m
+(≙&nbsp;~119&nbsp;cm) with Code&nbsp;40 N scale track (FS160). The industrial
+site is connected to an imaginary through-line of the Hamburger Hafenbahn.
+
+import layout from './layout.png';
+
+<PhotoSwipeImage src={layout} alt="Layout"/>
+
+| **Track** | **Track length** | **Platform length** | **Note**                  |
+| :-------: | ---------------: | ------------------: | :------------------------ |
+|     1     |           793 mm |                     | Freight transport only    |
+|    2a     |           215 mm |              100 mm | one wagon after the other |
+|    2b     |           680 mm |              310 mm |                           |
+|    3a     |           275 mm |                     |                           |
+|    3b     |           275 mm |               60 mm | one wagon after the other |
+|    3c     |                  |               95 mm | one wagon after the other |
+|    3d     |                  |               95 mm |                           |
+|    3e     |                  |              130 mm |                           |
+
+# Operations
+The following operating procedures are planned:
+
+**Goods dispatch**
+- Flour in bulk (for large bakeries), Ucs dust container wagon pneumatic
+  loading, track 2a 
+- Flour and bran in sacks, covered goods wagons (Gs), track 2b
+- Mill products for export (via quay) on pallets: sliding wall wagons (Hs), track 2b
+- Direct transfer: If the mill's silos are full or the grain is not to be
+  processed in this mill but sent on to another facility (e.g. inland), it is
+  loaded directly from the crane into the waiting hopper wagons (Tdgs) at the
+  quay, track 3b  
+
+**Goods receipt**
+- Grain (wheat, rye, maize) mainly by coastal motor vessel and barges at the quay (elevator)
+- Additives (baking agents, vitamins), pallets and sacks: covered goods wagons
+  (Gs), track 2b
+- Grain (wheat, rye, corn) by self-unloading wagons with swivel roofs (Ktmm,
+  Tdgs), track 3c
+
+**Operating resources**
+- Packaging material: sacks, pallets, cardboard boxes, covered goods wagons
+  (Gs), track 2b
+- Machine parts / maintenance: Staggered wagons (Ks) for larger plant components
+  or crates, track 3d
+- Heavy fuel oil (for own power station system): Tank wagon (Z), track 3e
+
+
+## Freight Transport in Table Form
+
+| **Track** | **Goods Issue**                                        | **Goods Receipt**                      | **Wagon type**                               |
+| :-------: | :----------------------------------------------------- | :------------------------------------- | :------------------------------------------- |
+|    2a     | Flour in bulk                                          |                                        | Ucs, Uacs                                    |
+|    2b     | Flour and bran (pallets and sacks)                     |                                        | Gs                                           |
+|    2b     | Grain (pallets and sacks)                              |                                        | Gs, Hs                                       |
+|    2b     | Mill products for export (pallets and sacks, via quay) |                                        | Hs                                           |
+|    3b     | Grain (direct transfer)                                |                                        | Tdgs, Uagpps, Tals, Tms, Klmmvs              |
+|    2b     |                                                        | Packaging material (pallets and sacks) | Gs                                           |
+|    2b     |                                                        | Additives (pallets and sacks)          | Gs                                           |
+|    3c     |                                                        | Grain                                  | Tdgs, Uagpps, Tals, Tms, Klmmvs, Tanoos, Fcs |
+|    3d     |                                                        | Machine parts                          | Ks                                           |
+|    3e     |                                                        | Heavy fuel oil                         | Z                                            |
+
+# Further ideas
+Another idea is to create an adapter to expand the shunting game into a
+single-track FREMO module showing an industrial connection at a through line. It
+could look like this:  
+
+import fremo_adapter from './fremo-adapter.png';
+
+<PhotoSwipeImage src={fremo_adapter} alt="Fremo adapter">
+  Green: FREMO module adapter, pure landscape; brown: the two segment boxes; black: tracks
+</PhotoSwipeImage>
+
+The FREMO module adapter will be 100 mm high, and the segment boxes will be
+about 70 mm or so high, so that they can rest on the adapter in a corresponding
+recess (and, of course, be secured there).
+
+I am concerned about achieving the necessary precision for the horizontal curved
+vertical contact surface, as depicted in the drawing. Nevertheless, I find the
+concept of the curved track's edge aligning with the segments appealing
+(referencing the Jigsaw approach, Iain Rice, *Layout Design*, 2010, page 50).
+
+# Pictures of the Prototype
+
+import aurora_mill_1 from './aurora-mill-1.jpg';
+
+<PhotoSwipeImage alt="Aurora mill main building" src={aurora_mill_1} >
+  View from the east: the quay and the main building (foreground, centre), Silo
+  I with the *Aurora* logo (centre, background), Silo II (half-right behind the
+  main building), Silo III (behind Silo II), elevator crane (yellow, right)
+</PhotoSwipeImage>
+
+import aurora_mill_2 from './aurora-mill-2.jpg';
+
+<PhotoSwipeImage alt="Aurora mill Plange's villa, Silos" src={aurora_mill_2}>
+  View from the south: \[Residential building, harbour crane (left)\], Plange's
+  villa (centre left), one of the newer Silos (centre), Silo III (right)
+</PhotoSwipeImage>
+
+import aurora_mill_3 from './aurora-mill-3.jpg';
+
+<PhotoSwipeImage alt="The elevator" src={aurora_mill_3}>
+  The elevator (grain suction device for unloading ships)
+</PhotoSwipeImage>
+
+import aurora_mill_4 from './aurora-mill-4.jpg';
+
+<PhotoSwipeImage alt="Boiler house" src={aurora_mill_4}>
+  The boiler house (foreground, centre), the main building (left), more new
+  silos (background)
+</PhotoSwipeImage>
+
+import google_maps from './google-maps.png';
+
+<PhotoSwipeImage alt="Google maps view" src={google_maps}>
+  The [location in Google Maps](https://www.google.de/maps/place/Trettaustra%C3%9Fe+49,+21107+Hamburg/@53.4938758,9.9832857,313m/data=!3m1!1e3!4m6!3m5!1s0x47b191d58cc0f8c3:0x53919d0969e482e8!8m2!3d53.4930844!4d9.9841206!16s%2Fg%2F11bw408d2s?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D)
+</PhotoSwipeImage>
+
+
+# Version history
+
+|    **Date**     | **Description**                                             |
+| :-------------: | :---------------------------------------------------------- |
+| **2026-06-15:** | [Here is the next iteration (#18)](../../)
+| **2026-05-18:** | This is the 7th iteration                                   |
+| **2026-03-05:** | [Here is the previous iteration (#4)](./archive/version-4/) |

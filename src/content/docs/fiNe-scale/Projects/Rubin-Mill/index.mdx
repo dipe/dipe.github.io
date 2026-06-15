@@ -3,12 +3,11 @@ title: Rubin Mill – A FiNescale Shunting Game with FREMO Adapter
 description: About my FREMO FiNescale Model Project »Rubin Mill«
 ---
 
-import { Aside } from '@astrojs/starlight/components';
-import { Card } from '@astrojs/starlight/components';
+import { Aside, Card, LinkButton } from '@astrojs/starlight/components';
 import PhotoSwipeImage from '/src/components/PhotoSwipeImage.astro';
 
 <Aside type="note" title="Planning Status">
-  As of May 2026, this module is in the planning stage. I will be posting regular updates here throughout the year.
+  As of June 2026, this module is in the planning stage. I will be posting regular updates here throughout the year.
 </Aside>
 
 # The Idea
@@ -22,16 +21,15 @@ layout.
 
 As a member of FREMO, I would like to use this model as a module at meetings. To
 that end, I have designed an adapter (see below). For this reason, the model
-also features a through track to which it is connected.
+also features a through track to which it is connected. Naturally, the model is
+not optimized for operational throughput, as it is intended to be a shunting
+puzzle. However, unlike the original Timesaver, the track lengths are
+dimensioned in such a way that I believe meaningful operation is possible even
+at a FREMO meeting. To increase the difficulty level during shunting puzzles,
+the longer tracks can simply be occupied with wagons so that the available space
+becomes tight—exactly as the original Timesaver intends.
 
-Naturally, the model is not optimized for operational throughput, as it is
-intended to be a shunting puzzle. However, unlike the original Timesaver, the
-track lengths are dimensioned in such a way that I believe meaningful operation
-is possible even at a FREMO meeting. To increase the difficulty level during
-shunting puzzles, the longer tracks can simply be occupied with wagons so that
-the available space becomes tight—exactly as the original Timesaver intends.
-
-The model recreates an industrial siding within the Hamburg Harbour Railway
+The model recreates an industrial siding within the Hamburger Hafenbahn
 network. But see for yourself...
 
 # The Subject
@@ -75,14 +73,18 @@ Click to zoom!
 
 import design from './design.png';
 
-<PhotoSwipeImage src={design} alt="Design">
-  Description from left to right: From left to right: Flour silo (Mehlsilo),
-  Pneumatic loading system (Druck-Verladeanlage), Loading ramp (Laderampe), Main
-  building (Haupthaus), Mill tower (Mühlenturm), Bulk loading system
-  (Schüttgut-Verladeanlage), Grain elevator (Elevator), Grain silo
-  (Getreidespeicher), Grain bunker  (Getreidebunker), Crane (Kran), Boiler house
-  (Kesselhaus), Heavy fuel oil tanks (Schweröl-Tanks), Locomotive shed
-  (Lokschuppen), below Quay and Water."
+<PhotoSwipeImage src={design} alt="Design"> 
+
+  Description from left to right: From
+  left to right: Flour silo (Mehlsilo), Pneumatic loading system
+  (Druck-Verladeanlage), Loading ramp (Laderampe), Main building (Haupthaus),
+  Mill tower (Mühlenturm), Bulk loading system (Schüttgut-Verladeanlage), Engine
+  shed (Lokschuppen), Grain elevator (Elevator), Grain silo (Getreidespeicher),
+  Grain bunker  (Getreidebunker), Crane (Kran), Boiler house (Kesselhaus), Heavy
+  fuel oil tanks (Schweröl-Tanks).  At the top: the main line of the Hamburg
+  Port Railway running through; below that (in red), the boundary of the factory
+  site; at the very bottom, the quay and (in blue) the water (Elbe/Rethe)." 
+
 </PhotoSwipeImage>
 
 # The Tack Layout
@@ -96,59 +98,62 @@ import layout from './layout.png';
 
 <PhotoSwipeImage src={layout} alt="Layout"/>
 
-| **Track** | **Track length** | **Platform length** | **Note**                  |
-| :-------: | ---------------: | ------------------: | :------------------------ |
-|     1     |           793 mm |                     | Freight transport only    |
-|    2a     |           215 mm |              100 mm | one wagon after the other |
-|    2b     |           680 mm |              310 mm |                           |
-|    3a     |           275 mm |                     |                           |
-|    3b     |           275 mm |               60 mm | one wagon after the other |
-|    3c     |                  |               95 mm | one wagon after the other |
-|    3d     |                  |               95 mm |                           |
-|    3e     |                  |              130 mm |                           |
+| Track | Purpose                   | Length | Loading Point | Note                                          |
+|:-----:|---------------------------|-------:|--------------:|-----------------------------------------------|
+|   1   | Entrance                  |        |               | Freight traffic only                          |
+|   1a  | Pressure Loading Facility | 390 mm |         92 mm | Flour loading, one wagon after another        |
+|   1b  | Siding                    | 750 mm |               | For arriving and departing trains (blocks 1a) |
+|   2a  | Loading Ramp              | 345 mm |        218 mm |                                               |
+|   2b  | Siding                    | 695 mm |               | For arriving and departing trains             |
+|   3a  | Siding                    | 250 mm |               |                                               |
+|   3b  | Grain Bunker              |        |         95 mm | Grain unloading, one wagon after another      |
+|   3c  | Loading Crane             |        |        100 mm |                                               |
+|   3d  | Tank Farm                 | 530 mm |        135 mm |                                               |
+|   4   | Bulk Loading Facility     | 300 mm |        100 mm | Grain loading, one wagon after another        |
+|   5   | Engine Shed               |        |               |                                               |
 
 # Operations
 The following operating procedures are planned:
 
 **Goods dispatch**
 - Flour in bulk (for large bakeries), Ucs dust container wagon pneumatic
-  loading, track 2a 
-- Flour and bran in sacks, covered goods wagons (Gs), track 2b
-- Mill products for export (via quay) on pallets: sliding wall wagons (Hs), track 2b
+  loading
+- Flour and bran in sacks, covered goods wagons (Gs)
+- Mill products for export (via quay) on pallets: sliding wall wagons (Hs)
 - Direct transfer: If the mill's silos are full or the grain is not to be
   processed in this mill but sent on to another facility (e.g. inland), it is
   loaded directly from the crane into the waiting hopper wagons (Tdgs) at the
-  quay, track 3b  
+  quay
 
 **Goods receipt**
 - Grain (wheat, rye, maize) mainly by coastal motor vessel and barges at the quay (elevator)
 - Additives (baking agents, vitamins), pallets and sacks: covered goods wagons
-  (Gs), track 2b
+  (Gs)
 - Grain (wheat, rye, corn) by self-unloading wagons with swivel roofs (Ktmm,
-  Tdgs), track 3c
+  Tdgs)
 
 **Operating resources**
 - Packaging material: sacks, pallets, cardboard boxes, covered goods wagons
-  (Gs), track 2b
+  (Gs)
 - Machine parts / maintenance: Staggered wagons (Ks) for larger plant components
-  or crates, track 3d
-- Heavy fuel oil (for own power station system): Tank wagon (Z), track 3e
+  or crates
+- Heavy fuel oil (for own power station system): Tank wagon (Z)
 
 
 ## Freight Transport in Table Form
 
-| **Track** | **Goods Issue**                                        | **Goods Receipt**                      | **Wagon type**                               |
-| :-------: | :----------------------------------------------------- | :------------------------------------- | :------------------------------------------- |
-|    2a     | Flour in bulk                                          |                                        | Ucs, Uacs                                    |
-|    2b     | Flour and bran (pallets and sacks)                     |                                        | Gs                                           |
-|    2b     | Grain (pallets and sacks)                              |                                        | Gs, Hs                                       |
-|    2b     | Mill products for export (pallets and sacks, via quay) |                                        | Hs                                           |
-|    3b     | Grain (direct transfer)                                |                                        | Tdgs, Uagpps, Tals, Tms, Klmmvs              |
-|    2b     |                                                        | Packaging material (pallets and sacks) | Gs                                           |
-|    2b     |                                                        | Additives (pallets and sacks)          | Gs                                           |
-|    3c     |                                                        | Grain                                  | Tdgs, Uagpps, Tals, Tms, Klmmvs, Tanoos, Fcs |
-|    3d     |                                                        | Machine parts                          | Ks                                           |
-|    3e     |                                                        | Heavy fuel oil                         | Z                                            |
+| Track | Goods Issue                                            | Goods Receipt                          | Wagon type                                   |
+|:-----:|--------------------------------------------------------|----------------------------------------|----------------------------------------------|
+|   1a  | Flour in bulk                                          |                                        | Ucs, Uacs                                    |
+|   2a  | Flour and bran (pallets and sacks)                     |                                        | Gs                                           |
+|   2a  | Grain (pallets and sacks)                              |                                        | Gs, Hs                                       |
+|   2a  | Mill products for export (pallets and sacks, via quay) |                                        | Hs                                           |
+|   4   | Grain (direct transfer)                                |                                        | Tdgs, Uagpps, Tals, Tms, Klmmvs              |
+|   2a  |                                                        | Packaging material (pallets and sacks) | Gs                                           |
+|   2a  |                                                        | Additives (pallets and sacks)          | Gs                                           |
+|   3b  |                                                        | Grain                                  | Tdgs, Uagpps, Tals, Tms, Klmmvs, Tanoos, Fcs |
+|   3c  |                                                        | Machine parts                          | Ks                                           |
+|   3d  |                                                        | Heating Oil                            | Z                                            |
 
 # Further ideas
 Another idea is to create an adapter to expand the shunting game into a
@@ -211,5 +216,5 @@ import google_maps from './google-maps.png';
 
 |    **Date**     | **Description**                                             |
 | :-------------: | :---------------------------------------------------------- |
-| **2026-05-18:** | This is the 7th iteration                                   |
-| **2026-03-05:** | [Here is the previous iteration (#4)](./archive/version-4/) |
+| **2026-06-15:** | This is iteration #18                                       |
+| **2026-05-18:** | [Here is the previous iteration (#7)](./archive/version-7/) |
