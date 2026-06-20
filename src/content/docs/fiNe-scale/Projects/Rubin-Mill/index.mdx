@@ -12,7 +12,7 @@ import PhotoSwipeImage from '/src/components/PhotoSwipeImage.astro';
   iterations, I feel like I’m getting there soon. I can’t wait to finally buzzing the
   circular saw.
 
-  Current status, open questions and latest changes [can be found here](#current-state).
+  Current status, open questions and latest changes [can be found below](#current-state).
 
 </Aside>
 
@@ -23,18 +23,18 @@ relatively small shunting game suitable for my living room. I have an ideal,
 compact space on the wall for two segment boxes, each measuring approximately
 120 cm by 32 cm, which can be stored vertically one above the other. For
 operation, one box will be taken down and connected to the other to create the
-layout.
+layout (s. [my design below](#my-design)).
 
-As a member of FREMO, I would like to use this model as a module at meetings as
-well. To that end, I have designed an adapter (see
-[below](#fremo-module-adapter)). For this reason, the model also features a
-through track to which it is connected. Naturally, the model is not optimized
-for operational throughput, as it is intended to be a shunting puzzle. However,
-unlike the original Timesaver, the track lengths are dimensioned in such a way
-that I believe meaningful operation is possible even at a FREMO meeting. To
-increase the difficulty level during shunting puzzles, the longer tracks can
-simply be occupied with wagons so that the available space becomes tight—exactly
-as the original Timesaver intends.
+As a member of [FREMO](https://www.fremo-net.eu/), I would like to use this
+model as a module at FREMO event as well. To that end, I have designed an FREMO
+module adapter (see [below](#fremo-module-adapter)). For this reason, the model
+also features a through track to which it is connected. Naturally, the model is
+not optimized for operational throughput, as it is intended to be a shunting
+puzzle. However, unlike the original Timesaver, the track lengths are
+dimensioned in such a way that I believe meaningful operation is possible even
+at a FREMO meeting. To increase the difficulty level during shunting puzzles,
+the longer tracks can simply be occupied with wagons so that the available space
+becomes tight—exactly as the original Timesaver intends.
 
 The model recreates an industrial siding within the Hamburger Hafenbahn
 network. But see for yourself...
@@ -95,7 +95,7 @@ import design from './design.png';
   Mill tower (Mühlenturm), Bulk loading system (Schüttgut-Verladeanlage), Engine
   shed (Lokschuppen), Grain elevator (Elevator), Grain silo (Getreidespeicher),
   Grain bunker  (Getreidebunker), Crane (Kran), Boiler house (Kesselhaus), Heavy
-  fuel oil tanks (Schweröl-Tanks)." 
+  fuel oil tanks (Schweröl-Tanks).
 
 </PhotoSwipeImage>
 
@@ -108,6 +108,8 @@ replicate the prototype turnout geometry. The industrial site is connected to an
 imaginary through-line of the Hamburger Hafenbahn.
 
 import layout from './layout.png';
+
+Click to zoom!
 
 <PhotoSwipeImage src={layout} alt="Layout"/>
 
@@ -169,14 +171,17 @@ The following operating procedures are planned:
 |   3d  |                                                        | Heavy Fuel Oil                         | Z                                            |
 
 ## FREMO Module Adapter
-Another idea is to create an adapter to expand the shunting game into a
-single-track FREMO module showing an industrial connection at a through line. It
-could look like this:  
+An important part of the idea is to create an adapter to expand the shunting
+game into a single-track FREMO module showing an industrial connection at a
+through line. It could look like this:  
 
 import fremo_adapter from './fremo-adapter.png';
 
-<PhotoSwipeImage src={fremo_adapter} alt="Fremo adapter">
-  Green: FREMO module adapter, pure landscape; brown: the two segment boxes; black: tracks
+<PhotoSwipeImage src={fremo_adapter} alt="Fremo adapter"> 
+
+  At the top: FREMO module adapter, pure landscape (green, no details yet, coming soon); below the
+  two segment boxes (brown) with tracks (black) 
+
 </PhotoSwipeImage>
 
 The two segments already include the continuous track. The FREMO module adapter
@@ -237,25 +242,24 @@ import google_maps from './google-maps.png';
 
 ## Current state
 
-### Open Topics / Questions Layout
+### Open Topics / Questions about my design
 - What is the absolute minimum distance I must keep between buildings and the
-track?
+track in [my design](#my-design)?
 - What are the practical dimensions and design for the main building's loading
-dock? At the moment, it's just drawn out of the blue.
+dock? (S. Laderampe in [my design](#my-design)) At the moment, it's just drawn out of the blue.
 - Is there a better location for the locomotive shed?
 
 ### Module / Segment Construction
 - My plan is to build the module sections using a frame construction method.
-I Have to share details!
-- How do I transfer the track plan onto the track board? Printing it out on
+I have an early version of a plan and will share details soon.
+- How do I transfer the [track layout plan](#the-track-layout) onto the track board? Printing it out on
 paper and sticking it on causes the paper to expand due to moisture, meaning
 the dimensions no longer match up. Don't know if this will be a Problem.
 - How will I control and operate the turnouts? Do I need to make provision for
 this now, whilst the module is being built?
 
 ### Questions for later
-- At least the tracks in the yard run on concrete (slabs). How do I build that?
-Finescale grooved rails?
+- At least the tracks in the yard run on concrete (slabs). How do I build that best?
 - What are some good Ucs wagon models for flour? [These ones?](https://www.trix.de/de/produkte/details/article/15279)
 - How can I describe the layout, the timetable, the track lengths and the
 turnout schema ([here](#the-track-layout)) in a way that fellow players at
@@ -263,14 +267,16 @@ FREMO meetings can easily understand?
 - Are the wagon types listed [here](#freight-transport-in-table-form) correct / complete?
 
 ### Latest changes
-- Entry via outer curved turnout 300-1:9 (946m/439m)
-- ...allows a 90° passage through the gate with sufficient width 
-- The bypass track is now free of loading bays
-- Track 2b and the bypass are of similar length
-- Space for a locomotive shed at the grain silo
-- Pressure flour loading: Track 1a runs under the main building, the
-rear section of which is raised on stilts for this purpose (brilliant idea
-by Jens)
+
+In my Design:
+  - Entry via outer curved turnout 300-1:9 (946m/439m)...
+  - ...allows a 90° passage through the gate with sufficient width 
+  - The bypass track is now free of loading bays
+  - Track 2b and the bypass are of similar length
+  - Space for a locomotive shed at the grain silo
+  - Pressure flour loading: Track 1a runs under the main building, the rear
+    section of which is raised on stilts for this purpose (brilliant idea by
+    Jens)
 
 ### Version history
 
