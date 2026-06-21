@@ -24,7 +24,7 @@ export default defineConfig({
 			},
 			plugins: [
 				starlightCatppuccin({
-					dark: { flavor: "latte", accent: "sky" },
+					dark: { flavor: "mocha", accent: "sapphire" },
 					light: { flavor: "latte", accent: "sky" },
 				}),
 			],
