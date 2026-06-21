@@ -3,6 +3,11 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightCatppuccin from '@catppuccin/starlight'
 import rehypeExternalLinks from 'rehype-external-links';
+import license from 'vite-plugin-license';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,7 +24,7 @@ export default defineConfig({
 			},
 			plugins: [
 				starlightCatppuccin({
-					dark: { flavor: "macchiato", accent: "sky" },
+					dark: { flavor: "latte", accent: "sky" },
 					light: { flavor: "latte", accent: "sky" },
 				}),
 			],
@@ -30,6 +35,15 @@ export default defineConfig({
 			lastUpdated: true,
 		}),
 	],
+	vite: {
+    	plugins: [
+      		license({
+        		thirdParty: {
+          			output: path.resolve(__dirname, './dist/3rd-party-licenses.txt'),
+				},
+			}),
+		],
+	},
 	markdown: {
     	rehypePlugins: [
 		[
