@@ -99,6 +99,15 @@ import design from './design.png';
 
 </PhotoSwipeImage>
 
+## Period
+
+I am planning to build the module in a way that allows it to be used with a
+variety of rolling stock from Period III to VI. Today, the grain silos in the
+Port of Hamburg are served by rail using containers (potentially special bulk
+containers) on flat wagons. With this design, we can recreate that type of
+operation as well.
+
+
 ## The Track Layout
 
 The track plan is my own free interpretation, inspired by the Timesaver.
@@ -114,16 +123,16 @@ Click to zoom!
 <PhotoSwipeImage src={layout} alt="Layout"/>
 
 | Track | Purpose                   | Length | Loading Point | Note                                          |
-|:-----:|---------------------------|-------:|--------------:|-----------------------------------------------|
+| :---: | ------------------------- | -----: | ------------: | --------------------------------------------- |
 |   1   | Entrance                  |        |               | Freight traffic only                          |
-|   1a  | Pressure Loading Facility | 390 mm |         92 mm | Flour loading, one wagon after another        |
-|   1b  | Siding                    | 750 mm |               | For arriving and departing trains (blocks 1a) |
-|   2a  | Loading Ramp              | 345 mm |        218 mm |                                               |
-|   2b  | Siding                    | 695 mm |               | For arriving and departing trains             |
-|   3a  | Siding                    | 250 mm |               |                                               |
-|   3b  | Grain Bunker              |        |         95 mm | Grain unloading, one wagon after another      |
-|   3c  | Loading Crane             |        |        100 mm |                                               |
-|   3d  | Tank Farm                 | 530 mm |        135 mm |                                               |
+|  1a   | Pressure Loading Facility | 390 mm |         92 mm | Flour loading, one wagon after another        |
+|  1b   | Siding                    | 750 mm |               | For arriving and departing trains (blocks 1a) |
+|  2a   | Loading Ramp              | 345 mm |        218 mm |                                               |
+|  2b   | Siding                    | 695 mm |               | For arriving and departing trains             |
+|  3a   | Siding                    | 250 mm |               |                                               |
+|  3b   | Grain Bunker              |        |         95 mm | Grain unloading, one wagon after another      |
+|  3c   | Loading Crane             |        |        100 mm |                                               |
+|  3d   | Tank Farm                 | 530 mm |        135 mm |                                               |
 |   4   | Bulk Loading Facility     | 300 mm |        100 mm | Grain loading, one wagon after another        |
 |   5   | Engine Shed               |        |               |                                               |
 
@@ -154,21 +163,24 @@ The following operating procedures are planned:
   or crates
 - Heavy fuel oil (for own power station system): Tank wagon (Z)
 
+From the end of Period III onwards, grain and flour could also be handled in
+bulk containers on container wagons and bogie flat wagons (Sgjs and Lgjs, later
+Sgns and Lgns).
 
 ### Freight Transport in Table Form
 
-| Track | Goods Issue                                            | Goods Receipt                          | Wagon type                                   |
-|:-----:|--------------------------------------------------------|----------------------------------------|----------------------------------------------|
-|   1a  | Flour in bulk                                          |                                        | Ucs, Uacs                                    |
-|   2a  | Flour and bran (pallets and sacks)                     |                                        | Gs                                           |
-|   2a  | Grain (pallets and sacks)                              |                                        | Gs, Hs                                       |
-|   2a  | Mill products for export (pallets and sacks, via quay) |                                        | Hs                                           |
-|   4   | Grain (direct transfer)                                |                                        | Tdgs, Uagpps, Tals, Tms, Klmmvs              |
-|   2a  |                                                        | Packaging material (pallets and sacks) | Gs                                           |
-|   2a  |                                                        | Additives (pallets and sacks)          | Gs                                           |
-|   3b  |                                                        | Grain                                  | Tdgs, Uagpps, Tals, Tms, Klmmvs, Tanoos, Fcs |
-|   3c  |                                                        | Machine parts                          | Ks                                           |
-|   3d  |                                                        | Heavy Fuel Oil                         | Z                                            |
+| Track | Goods Issue                                            | Goods Receipt                          | Wagon type                                                 |
+| :---: | ------------------------------------------------------ | -------------------------------------- | ---------------------------------------------------------- |
+|  1a   | Flour in bulk                                          |                                        | Ucs, Uacs or Container                                     |
+|  2a   | Flour and bran (pallets and sacks)                     |                                        | Gs                                                         |
+|  2a   | Grain (pallets and sacks)                              |                                        | Gs, Hs                                                     |
+|  2a   | Mill products for export (pallets and sacks, via quay) |                                        | Hs                                                         |
+|   4   | Grain (direct transfer)                                |                                        | Tdgs, Uagpps, Tals, Tms, Klmmvs or Container               |
+|  2a   |                                                        | Packaging material (pallets and sacks) | Gs                                                         |
+|  2a   |                                                        | Additives (pallets and sacks)          | Gs                                                         |
+|  3b   |                                                        | Grain                                  | Tdgs, Uagpps, Tals, Tms, Klmmvs, Tanoos, Fcs  or Container |
+|  3c   |                                                        | Machine parts                          | Ks                                                         |
+|  3d   |                                                        | Heavy Fuel Oil                         | Z                                                          |
 
 ## FREMO Module Adapter
 An important part of the idea is to create an adapter to expand the shunting
