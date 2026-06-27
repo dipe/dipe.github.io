@@ -1,18 +1,33 @@
 ---
-import { Image } from 'astro:assets';
+// src/components/PhotoSwipeImage.astro
+import { Image, getImage } from 'astro:assets';
 import 'photoswipe/style.css'; 
+
 interface Props {
   src: any; 
   alt: string;
   caption?: string;
   width?: number;
 }
+
 const { src, alt, caption, width = 800 } = Astro.props;
 const hasSlot = Astro.slots.has('default');
+
+const optimizedLargeImage = await getImage({
+  src: src,
+  width: 2000,
+  format: 'webp',
+  quality: 'high'
+});
 ---
 <figure class="pswp-single-wrapper">
-  <a href={src.src} data-pswp-width={src.width} data-pswp-height={src.height}
-     target="_blank" class="pswp-trigger">
+  <a 
+    href={optimizedLargeImage.src} 
+    data-pswp-width={optimizedLargeImage.attributes.width} 
+    data-pswp-height={optimizedLargeImage.attributes.height}
+    target="_blank" 
+    class="pswp-trigger"
+  >
     <Image src={src} alt={alt} width={width} />
   </a>
   {(hasSlot || caption) && (
@@ -60,7 +75,7 @@ const hasSlot = Astro.slots.has('default');
   function initSinglePswp() {
     if (!document.querySelector('.pswp-trigger')) return;
 
-  lightbox?.destroy();
+    lightbox?.destroy();
     if (popstateHandler) {
       window.removeEventListener('popstate', popstateHandler);
       popstateHandler = null;
@@ -74,7 +89,6 @@ const hasSlot = Astro.slots.has('default');
       tapAction: 'close',
       history: false,
     });
-
     lightbox.on('beforeOpen', () => {
       history.pushState({ pswp: true }, '', '#lightbox');
       
@@ -85,13 +99,11 @@ const hasSlot = Astro.slots.has('default');
       };
       window.addEventListener('popstate', popstateHandler, { once: true });
     });
-
     lightbox.on('close', () => {
       if (location.hash === '#lightbox') {
         history.back();
       }
     });
-
     lightbox.init();
   }
 

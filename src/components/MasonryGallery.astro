@@ -1,6 +1,6 @@
 ---
 // src/components/MasonryGallery.astro
-import { Image, getImage } from 'astro:assets'; // getImage importiert
+import { Image, getImage } from 'astro:assets';
 import 'photoswipe/style.css';
 
 const { images } = Astro.props;
@@ -10,8 +10,8 @@ const optimizedImages = await Promise.all(
   images.map(async (img) => {
     const largeImage = await getImage({
       src: img.src,
-      width: 1600,       // Begrenzt die Lightbox-Bilder auf eine vernünftige Maximalbreite
-      format: 'webp',    // Liefert moderne WebP-Bilder an die Lightbox aus
+      width: 2000,
+      format: 'webp',
       quality: 'high'
     });
 
@@ -29,9 +29,9 @@ const optimizedImages = await Promise.all(
   {optimizedImages.map((img) => (
     <figure class="masonry-item">
       <a 
-        href={img.lightboxSrc} {/* Nutzt jetzt die optimierte WebP-Großansicht */}
-        data-pswp-width={img.lightboxWidth} {/* Nutzt die angepasste Breite */}
-        data-pswp-height={img.lightboxHeight} {/* Nutzt die angepasste Höhe */}
+        href={img.lightboxSrc}
+        data-pswp-width={img.lightboxWidth}
+        data-pswp-height={img.lightboxHeight}
         target="_blank"
         class="pswp-link"
       >
