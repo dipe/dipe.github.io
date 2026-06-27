@@ -1,18 +1,37 @@
 ---
 // src/components/MasonryGallery.astro
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets'; // getImage importiert
 import 'photoswipe/style.css';
 
 const { images } = Astro.props;
+
+// Wir verarbeiten alle Bilder vor dem Rendern, um optimierte Versionen für die Lightbox zu erstellen
+const optimizedImages = await Promise.all(
+  images.map(async (img) => {
+    const largeImage = await getImage({
+      src: img.src,
+      width: 1600,       // Begrenzt die Lightbox-Bilder auf eine vernünftige Maximalbreite
+      format: 'webp',    // Liefert moderne WebP-Bilder an die Lightbox aus
+      quality: 'high'
+    });
+
+    return {
+      ...img,
+      lightboxSrc: largeImage.src,
+      lightboxWidth: largeImage.attributes.width,
+      lightboxHeight: largeImage.attributes.height,
+    };
+  })
+);
 ---
 
 <div class="masonry-wrapper" id="pswp-gallery">
-  {images.map((img) => (
+  {optimizedImages.map((img) => (
     <figure class="masonry-item">
       <a 
-        href={img.src.src} 
-        data-pswp-width={img.src.width} 
-        data-pswp-height={img.src.height} 
+        href={img.lightboxSrc} {/* Nutzt jetzt die optimierte WebP-Großansicht */}
+        data-pswp-width={img.lightboxWidth} {/* Nutzt die angepasste Breite */}
+        data-pswp-height={img.lightboxHeight} {/* Nutzt die angepasste Höhe */}
         target="_blank"
         class="pswp-link"
       >
@@ -36,14 +55,12 @@ const { images } = Astro.props;
 
 <script>
   import PhotoSwipeLightbox from 'photoswipe/lightbox';
-
   let lightbox = null;
 
   function initPhotoSwipe() {
     if (!document.querySelector('#pswp-gallery')) return;
 
     lightbox?.destroy();
-
     lightbox = new PhotoSwipeLightbox({
       gallery: '#pswp-gallery',
       children: 'a.pswp-link',
@@ -52,7 +69,6 @@ const { images } = Astro.props;
       tapAction: 'close',
       history: false,
     });
-
     lightbox.on('beforeOpen', () => {
       history.pushState({ pswp: true }, '', '#lightbox');
 
@@ -63,13 +79,11 @@ const { images } = Astro.props;
       };
       window.addEventListener('popstate', popstateHandler, { once: true });
     });
-
     lightbox.on('close', () => {
       if (location.hash === '#lightbox') {
         history.back();
       }
     });
-
     lightbox.init();
   }
 
