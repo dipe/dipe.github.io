@@ -8,7 +8,7 @@ import PhotoSwipeImage from '/src/components/PhotoSwipeImage.astro';
 
 <Aside type="note" title="Planning Status">
 
-  As of 2026-06-16, this module is still in planning stage.  After many
+  As of 2026-07-27, this module is still in planning stage.  After many
   iterations, I feel like I’m getting there soon. I can’t wait to finally buzzing the
   circular saw.
 
@@ -81,7 +81,10 @@ by the mill tower at 34 cm, the silos at 30 cm and the main building at 19 cm.
 Track 1b has a special feature: it runs beneath the main building, which is
 therefore mounted on stilts at the rear (brilliant idea by Jens).
 
-Click to zoom!
+
+import design_pdf from './design.pdf';
+
+Click to zoom or <a href={design_pdf} target="_blank" rel="noopener noreferrer">download as PDF</a>.
 
 import design from './design.png';
 
@@ -91,12 +94,12 @@ import design from './design.png';
   that (in red), the boundary of the factory site; at the very bottom, the quay
   and (in blue) the water (Elbe/Rethe). 
   
-  From left to right: Flour silo (Mehlsilo), Pneumatic loading system
-  (Druck-Verladeanlage), Loading ramp (Laderampe), Main building (Haupthaus),
-  Mill tower (Mühlenturm), Bulk loading system (Schüttgut-Verladeanlage), Engine
-  shed (Lokschuppen), Grain elevator (Elevator), Grain silo (Getreidespeicher),
-  Grain bunker  (Getreidebunker), Crane (Kran), Boiler house (Kesselhaus), Heavy
-  fuel oil tanks (Schweröl-Tanks).
+  From left to right: Flour silo (Mehlsilo), Loading ramp (Laderampe), Main
+  building (Haupthaus), Pneumatic loading system (Druck-Verladeanlage), Mill
+  tower (Mühlenturm), Bulk loading system (Schüttgut-Verladeanlage), Engine shed
+  (Lokschuppen), Grain elevator (Elevator), Grain silo (Getreidespeicher), Grain
+  bunker  (Getreidebunker), Crane (Kran), Boiler house (Kesselhaus), Heavy fuel
+  oil tanks (Schweröl-Tanks).
 
 </PhotoSwipeImage>
 
@@ -119,26 +122,64 @@ imaginary through-line of the Hamburger Hafenbahn.
 
 import layout from './layout.png';
 
-Click to zoom!
+import layout_pdf from './layout.pdf';
 
-<PhotoSwipeImage src={layout} alt="Layout"/>
+Click to zoom or <a href={layout_pdf} target="_blank" rel="noopener noreferrer">download as PDF</a>.
 
-| Track | Purpose                   | Length | Loading Point | Note                                          |
-| :---: | ------------------------- | -----: | ------------: | --------------------------------------------- |
-|   1   | Entrance                  |        |               | Freight traffic only                          |
-|  1a   | Pressure Loading Facility | 390 mm |         92 mm | Flour loading, one wagon after another        |
-|  1b   | Siding                    | 750 mm |               | For arriving and departing trains (blocks 1a) |
-|  2a   | Loading Ramp              | 345 mm |        218 mm |                                               |
-|  2b   | Siding                    | 695 mm |               | For arriving and departing trains             |
-|  3a   | Siding                    | 250 mm |               |                                               |
-|  3b   | Grain Bunker              |        |         95 mm | Grain unloading, one wagon after another      |
-|  3c   | Loading Crane             |        |        100 mm |                                               |
-|  3d   | Tank Farm                 | 530 mm |        135 mm |                                               |
-|   4   | Bulk Loading Facility     | 300 mm |        100 mm | Grain loading, one wagon after another        |
-|   5   | Engine Shed               |        |               |                                               |
+<PhotoSwipeImage src={layout} alt="Layout" caption="More focus on the track layout."/>
+
+| Track | Purpose                   | Length | Loading Point | Note                                                                                             |
+| :---: | ------------------------- | -----: | ------------: | ------------------------------------------------------------------------------------------------ |
+|   1   | Entrance                  |        |               | Freight traffic only                                                                             |
+|  1a   | Pressure Loading Facility | 930 mm |         92 mm | Flour loading, one wagon after another and as temporary siding for arriving and departing trains |
+|  2a   | Loading Ramp              | 327 mm |        218 mm |                                                                                                  |
+|  2b   | Siding                    | 695 mm |               | For arriving and departing trains                                                                |
+|  3a   | Siding                    | 407 mm |               |                                                                                                  |
+|  3b   | Grain Bunker              |        |         95 mm | Grain unloading, one wagon after another                                                         |
+|  3c   | Loading Crane             |        |        100 mm |                                                                                                  |
+|  3d   | Tank Farm                 | 530 mm |        135 mm |                                                                                                  |
+|   4   | Bulk Loading Facility     | 465 mm |        100 mm | Grain loading, one wagon after another                                                           |
+|   5   | Engine Shed               |        |               |                                                                                                  |
 
 ## Operations
+
+import schema from './schema.png';
+
+<PhotoSwipeImage src={schema} alt="Schema" caption="The track schema with numbered turnouts (red) and tracks (black). The red line indicates the boundaries of the premises."/>
+
 The following operating procedures are planned:
+
+**Incoming train arrives from west**
+
+1. passing turnout 1, 10 and 2
+2. • push back to track 1a (temporary only) or <br/>
+   • push back to track 3a (limited length) or <br/>
+   • push back to track 2a (limited length)
+3. loco is leaving via turnout 10 and 1
+
+**Incoming train arrives from east**
+
+1. pushing back via turnout 1, 10 and 2
+2. • leave dropped cars on 2b or <br/>
+   • forward via turnout 2 and 3 leaving dropped cars in front of turnout 8, running around via 7, 6, 5, 4, 3 and 2 or <br/>
+   • forward via on Track 3a (behind turnout 7), pushing back dropping cars on track 3b/c/d 
+3. loco is leaving via turnout 10 and 1
+
+**Outgoing train to leaves westwards**, 
+
+1. passing turnout 1, 10 and 2
+2. • pick up outbound cars on track 2b or <br/>
+   • forward via turnout 2, 3 and 4 to pick up outbound cars on track 3d or <br/>
+   • forward via turnout 2, 3 and 4 to pick up outbound cars on track 3b/c/d
+3. train is leaving via turnout 10 and 1
+
+**Outgoing train to leaves eastwards**
+
+1. passing turnout 1, 10 and 2
+2. • pick up outbound cars on track 1b, forward on track 2b or <br/>
+   • pick up outbound cars on track 2a, forward on track 2b or <br/>
+   • pick up outbound cars on track 3a, forward on track 2b
+3. train is backwards leaving via turnout 10 and 1
 
 **Goods dispatch**
 - Flour in bulk (for large bakeries), Ucs dust container wagon pneumatic
@@ -183,32 +224,47 @@ bogie flat wagons (Lgs and Sgs).
 |  3d   |                                                        | Heavy Fuel Oil                         | Z                                                       |
 
 ## FREMO Module Adapter
-An important part of the idea is to create an adapter to expand the shunting
-game into a single-track FREMO module showing an industrial connection at a
-through line. It could look like this:  
+An important part of the concept is creating an adapter to expand the shunting
+game into a single-track FREMO module. This depicts an industrial spur off a
+through line, spanning a total length of roughly 2.4 m at a 22.5° angle.
+
+I am a bit concerned about achieving the necessary precision for the horizontal
+curved vertical contact surface, as depicted in the drawing. Nevertheless, I
+find the concept of the curved track's edge aligning with the segments appealing
+(referencing the Jigsaw approach, Iain Rice, *Layout Design*, 2010, page 50).
 
 import fremo_adapter from './fremo-adapter.png';
 
 <PhotoSwipeImage src={fremo_adapter} alt="Fremo adapter"> 
 
-  At the top: FREMO module adapter, pure landscape (green, no details yet, coming soon); below the
-  two segment boxes (brown) with tracks (black) 
+  At the top: FREMO module adapter, pure landscape (green); below the two
+  segment boxes (brown) with tracks (black) 
 
 </PhotoSwipeImage>
 
 The two segments already include the continuous track. The FREMO module adapter
-is therefore purely a scenery module. In reality, the mill site borders directly
-on residential buildings. These can create a lovely scene on the adapter.
+is therefore purely a scenery module.
 
 Essentially, the adapter is only used to create the FREMO module head geometry
 of 400 mm x 100 mm. The FREMO module adapter will be 100 mm high, and the
 segment boxes will be about 70 mm or so high, so that they can rest on the
 adapter in a corresponding recess (and, of course, be secured there).
 
-I am a bit concerned about achieving the necessary precision for the horizontal
-curved vertical contact surface, as depicted in the drawing. Nevertheless, I
-find the concept of the curved track's edge aligning with the segments appealing
-(referencing the Jigsaw approach, Iain Rice, *Layout Design*, 2010, page 50).
+In reality, the prototype mill site borders directly on residential buildings.
+These can create a lovely scene on the adapter. Having a look onto the full
+designed FREMO module:
+
+import full_fremo_module_pdf from './full-fremo-module.pdf';
+
+Click to zoom or <a href={full_fremo_module_pdf} target="_blank" rel="noopener noreferrer">download as PDF</a>.
+
+import full_fremo_module from './full-fremo-module.png';
+
+<PhotoSwipeImage src={full_fremo_module} alt="Full FREMO module"> 
+
+  Full view on the FREMO Module
+
+</PhotoSwipeImage>
 
 
 ## Pictures of the Prototype
@@ -287,18 +343,15 @@ import google_maps from './google-maps.png';
 ### Latest changes
 
 In my Design:
-  - Entry via outer curved turnout 300-1:9 (946m/439m)...
-  - ...allows a 90° passage through the gate with sufficient width 
-  - The bypass track is now free of loading bays
-  - Track 2b and the bypass are of similar length
-  - Space for a locomotive shed at the grain silo
-  - Pressure flour loading: Track 1a runs under the main building, the rear
-    section of which is raised on stilts for this purpose (brilliant idea by
-    Jens)
+- Track switch 7/8 in the curve to the right of the loading ramp (more space at the ramp)
+- Main building longer and loading ramp further to the left
+- Compressed air loading at the mill tower (more space in the yard, so that lorry traffic is also plausibly possible)
+- Mill silo a bit smaller and positioned furthest to the left (even more space in the yard)
+- Detailed landscaping on the FREMO adapter
 
 ### Version history
 
-|    **Date**     | **Description**                                             |
-| :-------------: | :---------------------------------------------------------- |
-| **2026-06-15:** | This is iteration #18                                       |
-| **2026-05-18:** | [Here is the previous iteration (#7)](./archive/version-7/) |
+|    **Date**     | **Description**                                               |
+| :-------------: | :------------------------------------------------------------ |
+| **2026-07-27:** | This is the latest iteration #21                              |
+| **2026-06-15:** | [Here is the previous iteration (#18)](./archive/version-18/) |

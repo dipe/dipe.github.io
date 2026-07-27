@@ -1,0 +1,302 @@
+---
+title: Rubin Mill – A FiNescale Shunting Game with FREMO Module Adapter 
+description: About my FREMO FiNescale Model Project »Rubin Mill«
+sidebar:
+  hidden: true
+---
+
+import { Aside, Card, LinkButton } from '@astrojs/starlight/components';
+import PhotoSwipeImage from '/src/components/PhotoSwipeImage.astro';
+
+<Aside type="caution" title="Outdated Version">
+  You are looking on an archived previous version. [See here for the current one](../../).
+</Aside>
+
+
+## The Idea
+Inspired by John Whitby Allen's [Timesaver shunting
+puzzle](https://de.wikipedia.org/wiki/Timesaver), I developed a concept for a
+relatively small shunting game suitable for my living room. I have an ideal,
+compact space on the wall for two segment boxes, each measuring approximately
+120 cm by 32 cm, which can be stored vertically one above the other. For
+operation, one box will be taken down and connected to the other to create the
+layout ([see below](#my-design)).
+
+As a member of [FREMO](https://www.fremo-net.eu/), I would like to use this
+model as a module at FREMO event as well. To that end, I have designed an FREMO
+module adapter ([see below](#fremo-module-adapter)). For this reason, the model
+also features a through track to which it is connected. Naturally, the model is
+not optimized for operational throughput, as it is intended to be a shunting
+puzzle. However, unlike the original Timesaver, the track lengths are
+dimensioned in such a way that I believe meaningful operation is possible even
+at a FREMO meeting. To increase the difficulty level during shunting puzzles,
+the longer tracks can simply be occupied with wagons so that the available space
+becomes tight – exactly as the original Timesaver intends.
+
+The model recreates an industrial trapped siding – German
+»Ausweichanschlußstelle (Awanst)« – within the Hamburger Hafenbahn network. But
+see for yourself...
+
+## The Subject
+My shunting game, which I will call »Rubin Mill«, is inspired by the Aurora
+Mill (formerly [Diamantmehl](https://de.wikipedia.org/wiki/Diamantmehl) Mill).
+This mill is located on the [Rethe](https://de.wikipedia.org/wiki/Rethe), a
+connecting waterway in the Port of Hamburg, in
+[Hamburg-Wilhelmsburg](https://de.wikipedia.org/wiki/Hamburg-Wilhelmsburg), and
+features quay facilities.
+
+Several parts of the complex are listed buildings (historically preserved),
+which makes them attractive to replicate, including the main building
+(1953/1954), the boiler house (1896/1922), a residential building (1904), and
+two of five silos (silo II and silo III, 1934). See [my
+photos](#pictures-of-the-prototype) below.
+
+The mill has a well-developed quay facility, via which it is supplied with grain by
+inland waterway vessels. However, the mill also receives grain by lorry. A
+2-metre-high concrete wall above the sheet piling protects the mill from
+flooding. However, there is no longer any railway connection, and no visible
+traces of one remain.
+
+The model is therefore, just like its name, purely imaginary.
+
+import rubinmehl_logo from './rubinmehl-logo.png';
+
+<PhotoSwipeImage src={rubinmehl_logo} alt="Rubinmehl Logo" 
+  caption="Fantasy logo created by Gemini AI (Nano Banana 2)"/>
+
+In the original, the main building is about 85 metres long, 20 m deep and 35 m
+high. In the model, I would probably shorten it in length while taking
+proportions into account. I'll omit the flood wall in front so I can
+have a clear view of the model tracks. 
+
+## My design
+The design calls for two trapezoidal segments, with the front side concave (in
+Hamburg Low German so called the »Waterkant«) and the back side convex for
+aesthetic reasons. The tallest structure will be the chimney at 40 cm, followed
+by the mill tower at 34 cm, the silos at 30 cm and the main building at 19 cm.
+
+Track 1b has a special feature: it runs beneath the main building, which is
+therefore mounted on stilts at the rear (brilliant idea by Jens).
+
+Click to zoom!
+
+import design from './design.png';
+
+<PhotoSwipeImage src={design} alt="Design"> 
+
+  At the top: the main line of the Hamburg Port Railway running through; below
+  that (in red), the boundary of the factory site; at the very bottom, the quay
+  and (in blue) the water (Elbe/Rethe). 
+  
+  From left to right: Flour silo (Mehlsilo), Pneumatic loading system
+  (Druck-Verladeanlage), Loading ramp (Laderampe), Main building (Haupthaus),
+  Mill tower (Mühlenturm), Bulk loading system (Schüttgut-Verladeanlage), Engine
+  shed (Lokschuppen), Grain elevator (Elevator), Grain silo (Getreidespeicher),
+  Grain bunker  (Getreidebunker), Crane (Kran), Boiler house (Kesselhaus), Heavy
+  fuel oil tanks (Schweröl-Tanks).
+
+</PhotoSwipeImage>
+
+## Period
+
+I am planning to build the module in a way that allows it to be used with a
+variety of rolling stock from Period III to VI. Today, the grain silos in the
+Port of Hamburg are served by rail using containers (potentially special bulk
+containers) on flat wagons. With this design, we can recreate that type of
+operation as well.
+
+
+## The Track Layout
+
+The track plan is my own free interpretation, inspired by the Timesaver.
+Construction features a minimum prototypical radius of 190&nbsp;m
+(≙&nbsp;~119&nbsp;cm) with Code&nbsp;40 N scale track (FS160) and the points
+replicate the prototype turnout geometry. The industrial site is connected to an
+imaginary through-line of the Hamburger Hafenbahn.
+
+import layout from './layout.png';
+
+Click to zoom!
+
+<PhotoSwipeImage src={layout} alt="Layout"/>
+
+| Track | Purpose                   | Length | Loading Point | Note                                          |
+| :---: | ------------------------- | -----: | ------------: | --------------------------------------------- |
+|   1   | Entrance                  |        |               | Freight traffic only                          |
+|  1a   | Pressure Loading Facility | 390 mm |         92 mm | Flour loading, one wagon after another        |
+|  1b   | Siding                    | 750 mm |               | For arriving and departing trains (blocks 1a) |
+|  2a   | Loading Ramp              | 345 mm |        218 mm |                                               |
+|  2b   | Siding                    | 695 mm |               | For arriving and departing trains             |
+|  3a   | Siding                    | 250 mm |               |                                               |
+|  3b   | Grain Bunker              |        |         95 mm | Grain unloading, one wagon after another      |
+|  3c   | Loading Crane             |        |        100 mm |                                               |
+|  3d   | Tank Farm                 | 530 mm |        135 mm |                                               |
+|   4   | Bulk Loading Facility     | 300 mm |        100 mm | Grain loading, one wagon after another        |
+|   5   | Engine Shed               |        |               |                                               |
+
+## Operations
+The following operating procedures are planned:
+
+**Goods dispatch**
+- Flour in bulk (for large bakeries), Ucs dust container wagon pneumatic
+  loading
+- Flour and bran in sacks, covered goods wagons (Gs)
+- Mill products for export (via quay) on pallets: sliding wall wagons (Hs)
+- Direct transfer: If the mill's silos are full or the grain is not to be
+  processed in this mill but sent on to another facility (e.g. inland), it is
+  loaded directly from the crane into the waiting hopper wagons (Tdgs) at the
+  quay
+
+**Goods receipt**
+- Grain (wheat, rye, maize) mainly by coastal motor vessel and barges at the quay (elevator)
+- Additives (baking agents, vitamins), pallets and sacks: covered goods wagons
+  (Gs)
+- Grain (wheat, rye, corn) by self-unloading wagons with swivel roofs (Ktmm,
+  Tdgs)
+
+**Operating resources**
+- Packaging material: sacks, pallets, cardboard boxes, covered goods wagons
+  (Gs)
+- Machine parts / maintenance: Flat wagons with stakes (Ks) for larger plant components
+  or crates
+- Heavy fuel oil (for own power station system): Tank wagon (Z)
+
+Grain and flour could also be handled in bulk containers on container wagons and
+bogie flat wagons (Lgs and Sgs).
+
+### Freight Transport in Table Form
+
+| Track | Goods Issue                                            | Goods Receipt                          | Wagon type                                              |
+| :---: | ------------------------------------------------------ | -------------------------------------- | ------------------------------------------------------- |
+|  1a   | Flour in bulk                                          |                                        | Ucs, Uacs / Lgs, Sgs                                    |
+|  2a   | Flour and bran (pallets and sacks)                     |                                        | Gs                                                      |
+|  2a   | Grain (pallets and sacks)                              |                                        | Gs, Hs                                                  |
+|  2a   | Mill products for export (pallets and sacks, via quay) |                                        | Hs                                                      |
+|   4   | Grain (direct transfer)                                |                                        | Tdgs, Uagpps, Tals, Tms, Klmmvs / Lgs, Sgs              |
+|  2a   |                                                        | Packaging material (pallets and sacks) | Gs                                                      |
+|  2a   |                                                        | Additives (pallets and sacks)          | Gs                                                      |
+|  3b   |                                                        | Grain                                  | Tdgs, Uagpps, Tals, Tms, Klmmvs, Tanoos, Fcs / Lgs, Sgs |
+|  3c   |                                                        | Machine parts                          | Ks                                                      |
+|  3d   |                                                        | Heavy Fuel Oil                         | Z                                                       |
+
+## FREMO Module Adapter
+An important part of the idea is to create an adapter to expand the shunting
+game into a single-track FREMO module showing an industrial connection at a
+through line. It could look like this:  
+
+import fremo_adapter from './fremo-adapter.png';
+
+<PhotoSwipeImage src={fremo_adapter} alt="Fremo adapter"> 
+
+  At the top: FREMO module adapter, pure landscape (green, no details yet, coming soon); below the
+  two segment boxes (brown) with tracks (black) 
+
+</PhotoSwipeImage>
+
+The two segments already include the continuous track. The FREMO module adapter
+is therefore purely a scenery module. In reality, the mill site borders directly
+on residential buildings. These can create a lovely scene on the adapter.
+
+Essentially, the adapter is only used to create the FREMO module head geometry
+of 400 mm x 100 mm. The FREMO module adapter will be 100 mm high, and the
+segment boxes will be about 70 mm or so high, so that they can rest on the
+adapter in a corresponding recess (and, of course, be secured there).
+
+I am a bit concerned about achieving the necessary precision for the horizontal
+curved vertical contact surface, as depicted in the drawing. Nevertheless, I
+find the concept of the curved track's edge aligning with the segments appealing
+(referencing the Jigsaw approach, Iain Rice, *Layout Design*, 2010, page 50).
+
+
+## Pictures of the Prototype
+
+import aurora_mill_1 from './aurora-mill-1.jpg';
+
+<PhotoSwipeImage alt="Aurora mill main building" src={aurora_mill_1} > 
+
+  View from the east: the quay and the main building (foreground, centre), Mill
+  tower with the *Aurora* logo (centre, background), Silo I (half-right behind
+  the main building), Silo II (behind Silo I), elevator crane (yellow, right)
+
+</PhotoSwipeImage>
+
+import aurora_mill_2 from './aurora-mill-2.jpg';
+
+<PhotoSwipeImage alt="Aurora mill Plange's villa, Silos" src={aurora_mill_2}>
+
+  View from the south: \[Residential building, harbour crane (left, background)\], Plange's
+  villa (centre left), one of the newer Silos (centre), Silo II (right)
+
+</PhotoSwipeImage>
+
+import aurora_mill_3 from './aurora-mill-3.jpg';
+
+<PhotoSwipeImage alt="The elevator" src={aurora_mill_3}>
+  The elevator (grain suction device for unloading ships)
+</PhotoSwipeImage>
+
+import aurora_mill_4 from './aurora-mill-4.jpg';
+
+<PhotoSwipeImage alt="Boiler house" src={aurora_mill_4}>
+  The boiler house (foreground, centre), the main building (left), more new
+  silos (background)
+</PhotoSwipeImage>
+
+import google_maps from './google-maps.png';
+
+<PhotoSwipeImage alt="Google maps view" src={google_maps}>
+  The [location in Google Maps](https://www.google.de/maps/place/Trettaustra%C3%9Fe+49,+21107+Hamburg/@53.4938758,9.9832857,313m/data=!3m1!1e3!4m6!3m5!1s0x47b191d58cc0f8c3:0x53919d0969e482e8!8m2!3d53.4930844!4d9.9841206!16s%2Fg%2F11bw408d2s?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D)
+</PhotoSwipeImage>
+
+
+## Current state
+
+### Open Topics / Questions about my design
+- What is the absolute minimum distance I must keep between buildings and the
+  track in [my design](#my-design) – particularly on the inside of the 190m
+  curves? The longest wagons I plan to run are container flat wagons. 
+- What are the practical dimensions and design for the main building's loading
+  dock (s. »Laderampe« in [my design](#my-design)) At the moment, it's just
+  drawn out of the blue.
+- Is there an even better location for the locomotive shed?
+
+### Module / Segment Construction
+- My plan is to build the module sections using a frame construction method. I
+  have an early version of a plan and will share details soon.
+- How do I transfer the [track layout plan](#the-track-layout) onto the track
+  board? Printing it out on paper and sticking it on causes the paper to expand
+  due to moisture, meaning the dimensions no longer match up. Don't know if this
+  will be a Problem.
+- How will I control and operate the turnouts? Do I need to make provision for
+  this now, whilst the module is being built?
+
+### Questions for later
+- At least the tracks in the yard run on concrete (slabs). How do I build that best?
+- What are some good Ucs wagon models for flour? [These ones?](https://www.trix.de/de/produkte/details/article/15279)
+- What are good Gs/Hs wagon models for pallets?
+- Waht are goot T wagons models for heavy duty oil?
+- What are good flat wagons models for containers?
+- How can I describe the layout, the timetable, the track lengths and the
+  turnout schema ([here](#the-track-layout)) in a way that fellow players at
+  FREMO meetings can easily understand?
+- Are the wagon types listed [here](#freight-transport-in-table-form) correct and complete?
+
+### Latest changes
+
+In my Design:
+  - Entry via outer curved turnout 300-1:9 (946m/439m)...
+  - ...allows a 90° passage through the gate with sufficient width 
+  - The bypass track is now free of loading bays
+  - Track 2b and the bypass are of similar length
+  - Space for a locomotive shed at the grain silo
+  - Pressure flour loading: Track 1a runs under the main building, the rear
+    section of which is raised on stilts for this purpose (brilliant idea by
+    Jens)
+
+### Version history
+
+|    **Date**     | **Description**                                               |
+| :-------------: | :------------------------------------------------------------ |
+| **2026-06-15:** | [Here is the current iteration (#21)](../../)                 |
+| **2026-07-27:** | This is iteration #18                                         |
+| **2026-06-15:** | [Here is the previous iteration (#7)](../version-7/) |
