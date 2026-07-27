@@ -28,13 +28,7 @@ layout ([see below](#my-design)).
 As a member of [FREMO](https://www.fremo-net.eu/), I would like to use this
 model as a module at FREMO event as well. To that end, I have designed an FREMO
 module adapter ([see below](#fremo-module-adapter)). For this reason, the model
-also features a through track to which it is connected. Naturally, the model is
-not optimized for operational throughput, as it is intended to be a shunting
-puzzle. However, unlike the original Timesaver, the track lengths are
-dimensioned in such a way that I believe meaningful operation is possible even
-at a FREMO meeting. To increase the difficulty level during shunting puzzles,
-the longer tracks can simply be occupied with wagons so that the available space
-becomes tight – exactly as the original Timesaver intends.
+also features a through track to which it is connected. 
 
 The model recreates an industrial trapped siding – German
 »Ausweichanschlußstelle (Awanst)« – within the Hamburger Hafenbahn network. But
@@ -72,7 +66,7 @@ high. In the model, I would probably shorten it in length while taking
 proportions into account. I'll omit the flood wall in front so I can
 have a clear view of the model tracks. 
 
-## My design
+### My design
 The design calls for two trapezoidal segments, with the front side concave (in
 Hamburg Low German so called the »Waterkant«) and the back side convex for
 aesthetic reasons. The tallest structure will be the chimney at 40 cm, followed
@@ -103,7 +97,7 @@ import design from './design.png';
 
 </PhotoSwipeImage>
 
-## Period
+### Period
 
 I am planning to build the module in a way that allows it to be used with a
 variety of rolling stock from Period III to VI. Today, the grain silos in the
@@ -111,8 +105,7 @@ Port of Hamburg are served by rail using containers (potentially special bulk
 containers) on flat wagons. With this design, we can recreate that type of
 operation as well.
 
-
-## The Track Layout
+### The Track Layout
 
 The track plan is my own free interpretation, inspired by the Timesaver.
 Construction features a minimum prototypical radius of 190&nbsp;m
@@ -128,6 +121,23 @@ Click to zoom or <a href={layout_pdf} target="_blank" rel="noopener noreferrer">
 
 <PhotoSwipeImage src={layout} alt="Layout" caption="More focus on the track layout."/>
 
+
+## Operations
+
+Keep in mind, the model is not optimized for operational throughput, as it is
+intended to be a shunting puzzle. However, unlike the original Timesaver, the
+track lengths are dimensioned in such a way that I believe meaningful operation
+is possible even at a FREMO meeting. To increase the difficulty level during
+shunting puzzles, the longer tracks can simply be occupied with wagons so that
+the available space becomes tight – exactly as the original Timesaver intends.
+
+### The track schema
+import schema from './schema.png';
+
+<PhotoSwipeImage src={schema} alt="Schema" caption="The track schema with numbered turnouts (red) and tracks (black). The red line indicates the boundaries of the premises."/>
+
+### Tracks, purposes and lenths
+
 | Track | Purpose                   | Length | Loading Point | Note                                                                                             |
 | :---: | ------------------------- | -----: | ------------: | ------------------------------------------------------------------------------------------------ |
 |   1   | Entrance                  |        |               | Freight traffic only                                                                             |
@@ -141,15 +151,9 @@ Click to zoom or <a href={layout_pdf} target="_blank" rel="noopener noreferrer">
 |   4   | Bulk Loading Facility     | 465 mm |        100 mm | Grain loading, one wagon after another                                                           |
 |   5   | Engine Shed               |        |               |                                                                                                  |
 
-## Operations
-
-import schema from './schema.png';
-
-<PhotoSwipeImage src={schema} alt="Schema" caption="The track schema with numbered turnouts (red) and tracks (black). The red line indicates the boundaries of the premises."/>
-
 The following operating procedures are planned:
 
-**Incoming train arrives from west**
+### Incoming train arrives from west
 
 1. passing turnout 1, 10 and 2
 2. • push back to track 1a (temporary only) or <br/>
@@ -157,31 +161,29 @@ The following operating procedures are planned:
    • push back to track 2a (limited length)
 3. loco is leaving via turnout 10 and 1
 
-**Incoming train arrives from east**
+### Incoming train arrives from east
 
 1. pushing back via turnout 1, 10 and 2
 2. • leave dropped cars on 2b or <br/>
    • forward via turnout 2 and 3 leaving dropped cars in front of turnout 8, running around via 7, 6, 5, 4, 3 and 2 or <br/>
-   • forward via on Track 3a (behind turnout 7), pushing back dropping cars on track 3b/c/d 
+   • forward via on Track 3a (clear of turnout 7), pushing back dropping cars on track 3b/c/d 
 3. loco is leaving via turnout 10 and 1
 
-**Outgoing train to leaves westwards**, 
+### Outgoing train to leaves westwards, 
 
-1. passing turnout 1, 10 and 2
-2. • pick up outbound cars on track 2b or <br/>
+1. • pick up outbound cars on track 2b or <br/>
    • forward via turnout 2, 3 and 4 to pick up outbound cars on track 3d or <br/>
    • forward via turnout 2, 3 and 4 to pick up outbound cars on track 3b/c/d
-3. train is leaving via turnout 10 and 1
+2 train is leaving via turnout 10 and 1
 
-**Outgoing train to leaves eastwards**
+### Outgoing train to leaves eastwards
 
-1. passing turnout 1, 10 and 2
-2. • pick up outbound cars on track 1b, forward on track 2b or <br/>
+1. • pick up outbound cars on track 1b, forward on track 2b or <br/>
    • pick up outbound cars on track 2a, forward on track 2b or <br/>
    • pick up outbound cars on track 3a, forward on track 2b
-3. train is backwards leaving via turnout 10 and 1
+2. train is backwards leaving via turnout 10 and 1
 
-**Goods dispatch**
+### Goods dispatch
 - Flour in bulk (for large bakeries), Ucs dust container wagon pneumatic
   loading
 - Flour and bran in sacks, covered goods wagons (Gs)
@@ -191,14 +193,14 @@ The following operating procedures are planned:
   loaded directly from the crane into the waiting hopper wagons (Tdgs) at the
   quay
 
-**Goods receipt**
+### Goods receipt
 - Grain (wheat, rye, maize) mainly by coastal motor vessel and barges at the quay (elevator)
 - Additives (baking agents, vitamins), pallets and sacks: covered goods wagons
   (Gs)
 - Grain (wheat, rye, corn) by self-unloading wagons with swivel roofs (Ktmm,
   Tdgs)
 
-**Operating resources**
+### Operating resources
 - Packaging material: sacks, pallets, cardboard boxes, covered goods wagons
   (Gs)
 - Machine parts / maintenance: Flat wagons with stakes (Ks) for larger plant components
@@ -210,7 +212,7 @@ bogie flat wagons (Lgs and Sgs).
 
 ### Freight Transport in Table Form
 
-| Track | Goods Issue                                            | Goods Receipt                          | Wagon type                                              |
+| Track | Dispatch                                               | Receipt                                | Wagon type                                              |
 | :---: | ------------------------------------------------------ | -------------------------------------- | ------------------------------------------------------- |
 |  1a   | Flour in bulk                                          |                                        | Ucs, Uacs / Lgs, Sgs                                    |
 |  2a   | Flour and bran (pallets and sacks)                     |                                        | Gs                                                      |
@@ -222,6 +224,7 @@ bogie flat wagons (Lgs and Sgs).
 |  3b   |                                                        | Grain                                  | Tdgs, Uagpps, Tals, Tms, Klmmvs, Tanoos, Fcs / Lgs, Sgs |
 |  3c   |                                                        | Machine parts                          | Ks                                                      |
 |  3d   |                                                        | Heavy Fuel Oil                         | Z                                                       |
+
 
 ## FREMO Module Adapter
 An important part of the concept is creating an adapter to expand the shunting
