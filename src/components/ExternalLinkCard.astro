@@ -22,19 +22,16 @@ const props = Astro.props;
     display: block;
   }
 
-  /* Starlight Icons komplett entfernen */
   .external-card-final :global(.sl-link-card svg) {
     display: none !important;
   }
 
-  /* Unser Icon rechts oben positionieren */
   .custom-overlay {
     position: absolute;
-    top: 1.1rem;      /* Abstand von oben */
-    right: 1.1rem;    /* Abstand von rechts */
+    top: 1.1rem;
+    right: 1.1rem;
     pointer-events: none;
     
-    /* Farbe auf Grau/Textfarbe setzen statt Blau */
     color: var(--sl-color-gray-3); 
     opacity: 0.8;
     
@@ -42,14 +39,12 @@ const props = Astro.props;
     transition: all 0.2s ease-in-out;
   }
 
-  /* Hover-Effekt: Etwas deutlicher und in Akzentfarbe */
   .external-card-final:hover .custom-overlay {
     color: var(--sl-color-accent-high);
     opacity: 1;
     transform: translate(2px, -2px);
   }
 
-  /* Text-Abstand oben/rechts anpassen, damit nichts überlappt */
   .external-card-final :global(.sl-link-card .sl-flex) {
     padding-inline-end: 2.5rem;
   }
