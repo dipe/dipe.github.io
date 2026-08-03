@@ -8,11 +8,11 @@ import PhotoSwipeImage from '/src/components/PhotoSwipeImage.astro';
 
 <Aside type="note" title="Planning Status">
 
-  As of 2026-07-27, this module is still in planning stage.  After many
+  As of 2026-08-03, this module is still in planning stage.  After many
   iterations, I feel like I’m getting there soon. I can’t wait to finally buzzing the
   circular saw.
 
-  Current status, open questions and latest changes [can be found below](#current-state).
+  Current state, open questions and latest changes [can be found below](#current-state).
 
 </Aside>
 
@@ -332,26 +332,104 @@ import google_maps from './google-maps.png';
 </PhotoSwipeImage>
 
 
+## Module Box Construction
+
+The curved shape requires special attention during the construction of the
+boxes.
+
+In total, there are 4 boxes to be build: for the left segment (A), the right
+segment (B), the left FREMO adapter (C), and the right one (D). The design
+principle is the same for all of them: they are constructed using a rib frame
+design.
+
+The outer two end profiles of the segment boxes measure 215 mm x 70 mm. Together
+with the FREMO adapter, they form a module end compatible with the N 90 end
+profile.
+
+The segment boxes rest in a matching cut-out in the FREMO adapter. At the rear
+vertical edge, the segment end is held in place with a module connector. At the
+front, it is attached to the FREMO end with a knurled screw. 
+
+import module_connector from './module-connector.png';
+
+<PhotoSwipeImage alt="Google maps view" src={module_connector} alt="Module Connector" caption="Modul Connector" />
+
+import module_head from './module-head.png';
+
+<PhotoSwipeImage src={module_head} alt="Module Head">
+
+  Here you can see how the segment (brown) rests in a cut-out of the FREMO
+  adapter (green) and is secured there (blue). The result is effectively an N 90
+  end profile.
+
+</PhotoSwipeImage>
+
+The end profile plates are made from 15 mm multiplex plywood. 7.5 mm deep
+rebates and grooves are milled into the end plate for the sides, the
+longitudinal ribs, and the track bed.
+
+import segment_head from './segment-head.png';
+
+<PhotoSwipeImage src={segment_head} alt="Segment Head">
+
+  Turn the segment profile plate over so that we can see the inside: The sides,
+  longitudinal ribs, track bed, and riverbed are glued into rebates and grooves
+  in the end profile plate.
+
+</PhotoSwipeImage>
+
+The two end profile plates of each box are connected to each other via the side
+panels and two longitudinal ribs each. For the two segment boxes, one
+longitudinal rib forms the quay wall and runs straight. All the others form
+curves, which is why the sides and longitudinal ribs are made from flexible 2 mm
+aircraft plywood. The sides and longitudinal ribs are connected by 4 cross-ribs
+made of 6 mm multiplex plywood per box. 
+
+import segment_box from './segment-box.png';
+
+<PhotoSwipeImage src={segment_box} alt="Segment Box">
+  
+  Top view: Both segment boxes joined together. You can see the end
+  profiles as well as the longitudinal and cross-ribs.
+
+</PhotoSwipeImage>
+
+The two FREMO adapter boxes are designed in exactly the same way as the segment boxes.
+
+import modul_box from './modul-box.png';
+
+<PhotoSwipeImage src={modul_box} alt="Modul Box">
+
+  Here, the segment boxes (brown) are resting on the FREMO adapter boxes
+  (green). 
+
+</PhotoSwipeImage>
+
 ## Current state
 
-### Open Topics / Questions about my design
-- What is the absolute minimum distance I must keep between buildings and the
-  track in [my design](#my-design) – particularly on the inside of the 190m
-  curves? The longest wagons I plan to run are container flat wagons. 
+Current state of the planning phase.
+
+### Open Topics / Questions about my layout design
+- Is the operational concept coherent and sufficiently realistic for an
+  industrial mill?
 - What are the practical dimensions and design for the main building's loading
   dock (s. »Laderampe« in [my design](#my-design)) At the moment, it's just
   drawn out of the blue.
-- Is there an even better location for the locomotive shed?
+- What is the absolute minimum distance I must keep between buildings and the
+  track in [my design](#my-design) – particularly on the inside of the 190m
+  curves? The longest wagons I plan to run are container flat wagons. 
 
-### Module / Segment Construction
-- My plan is to build the module sections using a frame construction method. I
-  have an early version of a plan and will share details soon.
+### Module / Segment Box Construction
+- My plan is to build the module and segment boxes using a frame construction
+  method.  Is this structure sufficiently rigid, particularly with regard to
+  torsion?
 - How do I transfer the [track layout plan](#the-track-layout) onto the track
   board? Printing it out on paper and sticking it on causes the paper to expand
   due to moisture, meaning the dimensions no longer match up. Don't know if this
-  will be a Problem.
+  will be a problem.
 - How will I control and operate the turnouts? Do I need to make provision for
-  this now, whilst the module is being built?
+  this now, whilst the module is being built?  For example, to ensure there is
+  sufficient space between the ribs.
 
 ### Questions for later
 - At least the tracks in the yard run on concrete (slabs). How do I build that best?
@@ -369,8 +447,11 @@ import google_maps from './google-maps.png';
 Track layout:
 - Track switch 7/8 in the curve to the right of the loading ramp (more space at the ramp)
 
+Box construction:
+- Added most construction details so far
+
 Design:
-- Main building longer and loading ramp further to the left
+- Main building extended in legth and loading ramp further to the left
 - Compressed air loading at the mill tower (more space in the yard, so that lorry traffic is also plausibly possible)
 - Mill silo a bit smaller and positioned furthest to the left (even more space in the yard)
 - Detailed landscaping on the FREMO adapter
