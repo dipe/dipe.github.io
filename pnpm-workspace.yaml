@@ -1,6 +1,8 @@
 allowBuilds:
   esbuild: false
   sharp: false
+minimumReleaseAgeExclude:
+  - astro@7.2.0
 onlyBuiltDependencies:
   - esbuild
   - sharp
