@@ -60,12 +60,20 @@ No explicit `sidebar` config exists in `astro.config.mjs` — ordering is alphab
 ### Image handling — three distinct paths
 
 1. **`PhotoSwipeImage.astro`** — a single image with an optional caption (or slot content), click-to-zoom via PhotoSwipe.
-2. **`MasonryGallery.astro`** — an `images={[{ src, alt, caption? }]}` array rendered as a CSS-column masonry grid, one shared lightbox.
+2. **`MasonryGallery.astro`** — an `images={[{ src, alt, caption? }]}` array rendered as a CSS-column masonry grid. Each instance is its own lightbox group, so several galleries can sit on one page.
 3. Plain Markdown images — no lightbox.
 
 Both components pre-generate a 2000px WebP via `getImage()` at build time for the lightbox and render a smaller `<Image>` inline. Images must be **imported as ES modules** from a path relative to the `.mdx` file (`import bild0 from './0.jpg'`) — string paths won't get optimized dimensions and will break the lightbox. Images live alongside their `.mdx` in `src/content/docs/`, not in `src/assets/`.
 
-Both components re-init their lightbox on `astro:page-load` (Starlight uses view transitions), so any new PhotoSwipe usage must do the same or the lightbox dies after client-side navigation.
+### The lightbox
+
+All PhotoSwipe wiring lives in **`src/scripts/lightbox.ts`**; the components only render markup and call `registerLightbox({ gallery, children })` from their `<script>`. Anything new that needs a lightbox should do the same rather than instantiate PhotoSwipe itself — the module owns three things that are easy to get wrong:
+
+- **Re-init on `astro:page-load`.** Starlight navigates client-side, so the elements PhotoSwipe bound its click handlers to are gone after every navigation and the instance must be rebuilt, not created once.
+- **The history entry.** PhotoSwipe 5 dropped v4's `history` option, so the module pushes a `#lightbox` entry itself to make the back button close the lightbox instead of leaving the page. Passing `history: false` to PhotoSwipe 5 does nothing.
+- **The caption.** The lightbox caption is read from the `[data-pswp-caption]` element inside the thumbnail's `<figure>`, so markup is never duplicated — whatever shows under the thumbnail shows in the lightbox. A `<figure>` without that attribute simply has no lightbox caption.
+
+The lightbox renders outside every component (PhotoSwipe appends its root to `<body>`), so its CSS cannot be component-scoped: it lives in `src/styles/lightbox.css`, which also pulls in `photoswipe/style.css` and is imported by both components. Component-local styling stays in the components' scoped `<style>` blocks.
 
 Note: `starlight-image-zoom` is in `package.json` but is **not** registered in `astro.config.mjs` — the PhotoSwipe components supersede it.
 
