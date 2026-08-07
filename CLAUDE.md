@@ -17,10 +17,16 @@ pnpm install
 pnpm dev        # dev server at localhost:4321
 pnpm build      # production build to ./dist/
 pnpm preview    # serve the built site
-pnpm astro check   # type-check .astro/.mdx (no separate lint/test setup)
+pnpm check      # type-check the .astro components (no separate lint/test setup)
 ```
 
 There is no test suite and no linter. `pnpm build` is the de facto correctness check — it fails on broken image imports, invalid frontmatter, and dead internal links (see below).
+
+`pnpm check` covers the four `.astro` components only — **not** `.mdx`. Component `Props` interfaces therefore guard the components and editor tooling, but nothing validates how content calls them; a bad prop in an `.mdx` file surfaces at build time or not at all.
+
+`typescript` is pinned to **6.x** on purpose. TypeScript 7 dropped the programmatic API that `@astrojs/check` relies on, so `pnpm check` fails immediately on 7.x. Don't bump it until `@astrojs/check` supports the native compiler.
+
+Two peer-dependency warnings are expected and harmless: `@catppuccin/starlight` asks for `astro@^6` and `vite-plugin-license` for `vite@^7`, while the project is on Astro 7 / Vite 8.
 
 The site is normally built by CI, not locally. A `dist/` directory in the working tree may be stale — don't infer routes from it.
 
@@ -74,8 +80,6 @@ All PhotoSwipe wiring lives in **`src/scripts/lightbox.ts`**; the components onl
 - **The caption.** The lightbox caption is read from the `[data-pswp-caption]` element inside the thumbnail's `<figure>`, so markup is never duplicated — whatever shows under the thumbnail shows in the lightbox. A `<figure>` without that attribute simply has no lightbox caption.
 
 The lightbox renders outside every component (PhotoSwipe appends its root to `<body>`), so its CSS cannot be component-scoped: it lives in `src/styles/lightbox.css`, which also pulls in `photoswipe/style.css` and is imported by both components. Component-local styling stays in the components' scoped `<style>` blocks.
-
-Note: `starlight-image-zoom` is in `package.json` but is **not** registered in `astro.config.mjs` — the PhotoSwipe components supersede it.
 
 ### External links
 

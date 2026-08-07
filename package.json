@@ -8,6 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "check": "astro check",
     "astro": "astro"
   },
   "dependencies": {
@@ -17,8 +18,11 @@
     "photoswipe": "^5.4.4",
     "rehype-external-links": "^3.0.0",
     "sharp": "^0.34.5",
-    "starlight-image-zoom": "^0.14.1",
     "starlight-links-validator": "^0.25.2",
     "vite-plugin-license": "^0.0.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^6.0.3"
   }
 }
