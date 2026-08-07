@@ -1,12 +1,14 @@
 ---
 // src/components/PhotoSwipeImage.astro
 import { Image, getImage } from 'astro:assets';
-import 'photoswipe/style.css'; 
+import '../styles/lightbox.css';
 
 interface Props {
-  src: any; 
+  src: ImageMetadata;
   alt: string;
+  /** Caption below the image and in the lightbox. Slot content takes precedence. */
   caption?: string;
+  /** Width of the inline image; the lightbox always gets the 2000px version. */
   width?: number;
 }
 
@@ -21,23 +23,23 @@ const optimizedLargeImage = await getImage({
 });
 ---
 <figure class="pswp-single-wrapper">
-  <a 
-    href={optimizedLargeImage.src} 
-    data-pswp-width={optimizedLargeImage.attributes.width} 
+  <a
+    href={optimizedLargeImage.src}
+    data-pswp-width={optimizedLargeImage.attributes.width}
     data-pswp-height={optimizedLargeImage.attributes.height}
-    target="_blank" 
+    target="_blank"
     class="pswp-trigger"
   >
     <Image src={src} alt={alt} width={width} />
   </a>
   {(hasSlot || caption) && (
-    <figcaption class="pswp-caption">
+    <figcaption class="pswp-caption" data-pswp-caption>
       {hasSlot ? <slot /> : caption}
     </figcaption>
   )}
 </figure>
 
-<style is:global>
+<style>
   .pswp-single-wrapper {
     border-radius: 0.5em;
     background: var(--sl-color-gray-6);
@@ -67,46 +69,9 @@ const optimizedLargeImage = await getImage({
 </style>
 
 <script>
-  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import { registerLightbox } from '../scripts/lightbox';
 
-  let lightbox = null;
-  let popstateHandler = null;
-
-  function initSinglePswp() {
-    if (!document.querySelector('.pswp-trigger')) return;
-
-    lightbox?.destroy();
-    if (popstateHandler) {
-      window.removeEventListener('popstate', popstateHandler);
-      popstateHandler = null;
-    }
-
-    lightbox = new PhotoSwipeLightbox({
-      gallery: 'body',
-      children: 'a.pswp-trigger',
-      pswpModule: () => import('photoswipe'),
-      imageClickAction: 'close',
-      tapAction: 'close',
-      history: false,
-    });
-    lightbox.on('beforeOpen', () => {
-      history.pushState({ pswp: true }, '', '#lightbox');
-      
-      const popstateHandler = () => {
-        if (lightbox?.pswp) {
-          lightbox.pswp.close();
-        }
-      };
-      window.addEventListener('popstate', popstateHandler, { once: true });
-    });
-    lightbox.on('close', () => {
-      if (location.hash === '#lightbox') {
-        history.back();
-      }
-    });
-    lightbox.init();
-  }
-
-  initSinglePswp();
-  document.addEventListener('astro:page-load', initSinglePswp);
+  // `gallery: 'body'` puts every standalone image of a page into one swipeable
+  // set, so the lightbox can page through them.
+  registerLightbox({ gallery: 'body', children: 'a.pswp-trigger' });
 </script>

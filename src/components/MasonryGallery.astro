@@ -1,7 +1,17 @@
 ---
 // src/components/MasonryGallery.astro
 import { Image, getImage } from 'astro:assets';
-import 'photoswipe/style.css';
+import '../styles/lightbox.css';
+
+interface GalleryImage {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+}
+
+interface Props {
+  images: GalleryImage[];
+}
 
 const { images } = Astro.props;
 
@@ -25,70 +35,38 @@ const optimizedImages = await Promise.all(
 );
 ---
 
-<div class="masonry-wrapper" id="pswp-gallery">
+<div class="masonry-wrapper pswp-gallery">
   {optimizedImages.map((img) => (
     <figure class="masonry-item">
-      <a 
+      <a
         href={img.lightboxSrc}
         data-pswp-width={img.lightboxWidth}
         data-pswp-height={img.lightboxHeight}
         target="_blank"
         class="pswp-link"
       >
-        <Image 
-          src={img.src} 
-          alt={img.alt || ''} 
+        <Image
+          src={img.src}
+          alt={img.alt}
           width={400}
           quality="mid"
         />
-        {img.caption && (
-          <figcaption class="image-caption">
-            {img.caption}
-            {/* Verstecktes Element für die Lightbox-Caption */}
-            <span class="pswp-caption-content" style="display:none;">{img.caption}</span>
-          </figcaption>
-        )}
       </a>
+      {img.caption && (
+        <figcaption class="image-caption" data-pswp-caption>
+          {img.caption}
+        </figcaption>
+      )}
     </figure>
   ))}
 </div>
 
 <script>
-  import PhotoSwipeLightbox from 'photoswipe/lightbox';
-  let lightbox = null;
+  import { registerLightbox } from '../scripts/lightbox';
 
-  function initPhotoSwipe() {
-    if (!document.querySelector('#pswp-gallery')) return;
-
-    lightbox?.destroy();
-    lightbox = new PhotoSwipeLightbox({
-      gallery: '#pswp-gallery',
-      children: 'a.pswp-link',
-      pswpModule: () => import('photoswipe'),
-      imageClickAction: 'close',
-      tapAction: 'close',
-      history: false,
-    });
-    lightbox.on('beforeOpen', () => {
-      history.pushState({ pswp: true }, '', '#lightbox');
-
-      const popstateHandler = () => {
-        if (lightbox?.pswp) {
-          lightbox.pswp.close();
-        }
-      };
-      window.addEventListener('popstate', popstateHandler, { once: true });
-    });
-    lightbox.on('close', () => {
-      if (location.hash === '#lightbox') {
-        history.back();
-      }
-    });
-    lightbox.init();
-  }
-
-  initPhotoSwipe();
-  document.addEventListener('astro:page-load', initPhotoSwipe);
+  // `.pswp-gallery` ist eine Klasse, keine ID: PhotoSwipe bindet sich an jedes
+  // Vorkommen, sodass mehrere Galerien pro Seite eigene Gruppen bleiben.
+  registerLightbox({ gallery: '.pswp-gallery', children: 'a.pswp-link' });
 </script>
 
 <style>

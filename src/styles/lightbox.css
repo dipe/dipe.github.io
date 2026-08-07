@@ -1,0 +1,35 @@
+/*
+ * Styling for the PhotoSwipe lightbox, shared by PhotoSwipeImage and
+ * MasonryGallery.
+ *
+ * PhotoSwipe appends its root to <body>, outside of any component, so these
+ * rules cannot live in a component's scoped <style> block. The backdrop is dark
+ * in both Starlight themes, which is why the caption uses fixed light colours
+ * instead of the theme variables.
+ */
+@import 'photoswipe/style.css';
+
+.pswp__figcaption {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 1rem 1.5rem calc(1rem + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(to top, rgb(0 0 0 / 60%), transparent);
+  color: #fff;
+  font-size: var(--sl-text-sm);
+  line-height: 1.5;
+  text-align: center;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 80%);
+  /* A click anywhere on the image closes the lightbox; only links opt back in. */
+  pointer-events: none;
+}
+
+.pswp__figcaption a {
+  color: inherit;
+  pointer-events: auto;
+}
+
+.pswp__figcaption p {
+  margin: 0;
+}
