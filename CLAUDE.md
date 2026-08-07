@@ -34,6 +34,8 @@ The site is normally built by CI, not locally. A `dist/` directory in the workin
 
 Push to `main` triggers `.github/workflows/deply.yml` (note the typo in the filename), which uses `withastro/action@v5` → GitHub Pages. No manual deploy step.
 
+The action's `build-cmd` is set to `pnpm run check && pnpm run build`, so a type error fails the `build` job and the `deploy` job never starts. It rides along on the action's single `pnpm install` instead of getting its own job. Consequence worth remembering: **a type error now blocks the deployment**, unlike the weekly external link check, which is deliberately kept off the deploy path.
+
 ## Architecture
 
 **Everything is content-driven.** `src/content/docs/**` is the entire site; Starlight auto-generates routes and the sidebar from the directory tree. There are no `src/pages/`, no layouts, and no route files.
