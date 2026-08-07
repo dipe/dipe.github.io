@@ -1,6 +1,10 @@
 ---
-import { LinkCard } from '@astrojs/starlight/components';
-import { Icon } from '@astrojs/starlight/components';
+import { Icon, LinkCard } from '@astrojs/starlight/components';
+import type { ComponentProps } from 'astro/types';
+
+// Mirrors LinkCard's own props (title, description?, anchor attributes) so the
+// spread below stays valid if Starlight changes them.
+type Props = ComponentProps<typeof LinkCard>;
 
 const props = Astro.props;
 ---
