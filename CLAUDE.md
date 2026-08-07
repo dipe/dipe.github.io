@@ -20,7 +20,9 @@ pnpm preview    # serve the built site
 pnpm astro check   # type-check .astro/.mdx (no separate lint/test setup)
 ```
 
-There is no test suite and no linter. `pnpm build` is the de facto correctness check — it fails on broken image imports, invalid frontmatter, and bad internal links.
+There is no test suite and no linter. `pnpm build` is the de facto correctness check — it fails on broken image imports and invalid frontmatter. It does **not** validate internal Markdown links, so a renamed page silently leaves 404s behind; check inbound links by hand when renaming a content file.
+
+The site is normally built by CI, not locally. A `dist/` directory in the working tree may be stale — don't infer routes from it.
 
 ## Deployment
 
