@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightCatppuccin from '@catppuccin/starlight'
+import starlightLinksValidator from 'starlight-links-validator';
 import rehypeExternalLinks from 'rehype-external-links';
 import license from 'vite-plugin-license';
 import { fileURLToPath } from 'url';
@@ -26,6 +27,11 @@ export default defineConfig({
 				starlightCatppuccin({
 					dark: { flavor: "mocha", accent: "sapphire" },
 					light: { flavor: "latte", accent: "sky" },
+				}),
+				// Fails `astro build` on dead internal links. Only checks Markdown/MDX,
+				// so `href`s in our own components must be declared explicitly.
+				starlightLinksValidator({
+					components: [['ExternalLinkCard', 'href']],
 				}),
 			],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/dipe/' }],
