@@ -20,7 +20,7 @@ pnpm preview    # serve the built site
 pnpm astro check   # type-check .astro/.mdx (no separate lint/test setup)
 ```
 
-There is no test suite and no linter. `pnpm build` is the de facto correctness check — it fails on broken image imports and invalid frontmatter. It does **not** validate internal Markdown links, so a renamed page silently leaves 404s behind; check inbound links by hand when renaming a content file.
+There is no test suite and no linter. `pnpm build` is the de facto correctness check — it fails on broken image imports, invalid frontmatter, and dead internal links (see below).
 
 The site is normally built by CI, not locally. A `dist/` directory in the working tree may be stale — don't infer routes from it.
 
@@ -37,9 +37,21 @@ Push to `main` triggers `.github/workflows/deply.yml` (note the typo in the file
 Starlight slugifies directory names, so paths in Markdown links do **not** match the on-disk casing:
 
 - `src/content/docs/fiNe-scale/` → `/fine-scale/`
-- `src/content/docs/fiNe-scale/Tools & Techniques/Etching/` → `/fine-scale/tools--techniques/etching/` (the `&` collapses to a double dash)
+- `src/content/docs/fiNe-scale/Tools and Techniques/Etching/` → `/fine-scale/tools-and-techniques/etching/`
+- `src/content/docs/fiNe-scale/zz-resources.mdx` → `/fine-scale/zz-resources/`
 
 When adding an internal link, derive the URL from the lowercased/slugified path, not the folder name.
+
+### Link validation
+
+`starlight-links-validator` runs inside `astro build` and fails the build on dead internal links, including links to files in `public/` and invalid heading anchors. Its config lives in the `plugins` array in `astro.config.mjs`.
+
+Two consequences for content:
+
+- **Internal links must be site-absolute** (`/fine-scale/projects/rubin-mill/`). The plugin's `errorOnRelativeLinks` default is `true`, and switching it off would make relative links unvalidated rather than valid — so `./foo` and `../foo` are not an option here.
+- The plugin only reads Markdown/MDX, and within it only known link props. Any **new component that takes a URL prop must be registered** via the `components` option (currently `[['ExternalLinkCard', 'href']]`), otherwise its links are silently unchecked.
+
+External links are **not** covered by the build. `.github/workflows/linkcheck.yml` builds the site and runs `lychee` over `dist/**/*.html` weekly (and on manual dispatch). It deliberately does not run on push, so an unreachable third-party site can never block a deployment.
 
 ### Sidebar ordering
 
