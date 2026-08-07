@@ -1,0 +1,53 @@
+name: Check external links
+
+# Internal links are already validated on every build by
+# starlight-links-validator, which fails `astro build`. This workflow covers
+# the links we do not control: it builds the site and checks every link in the
+# generated HTML. It runs on a schedule rather than on push, so a third-party
+# site going down can never block a deployment.
+
+on:
+  schedule:
+    # Mondays, 06:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build site
+        run: pnpm build
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # --root-dir resolves site-absolute paths such as /fine-scale/ against
+          # the build output. 403 is accepted because some sites reject bots
+          # outright, which would otherwise be reported as a dead link.
+          args: >-
+            --no-progress
+            --max-retries 2
+            --timeout 20
+            --accept 200,206,403
+            --root-dir "${{ github.workspace }}/dist"
+            'dist/**/*.html'
+          fail: true
