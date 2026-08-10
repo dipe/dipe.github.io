@@ -42,12 +42,16 @@ jobs:
         with:
           # --root-dir resolves site-absolute paths such as /fine-scale/ against
           # the build output. 403 is accepted because some sites reject bots
-          # outright, which would otherwise be reported as a dead link.
+          # outright, which would otherwise be reported as a dead link. The
+          # 404 page's own canonical/og:url point at /404/, which correctly
+          # returns HTTP 404 on the live site by design, so that one URL is
+          # excluded rather than accepted globally.
           args: >-
             --no-progress
             --max-retries 2
             --timeout 20
             --accept 200,206,403
+            --exclude '^https://dipe\.de/404/?$'
             --root-dir "${{ github.workspace }}/dist"
             'dist/**/*.html'
           fail: true
