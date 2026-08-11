@@ -15,7 +15,6 @@ interface Props {
 
 const { images } = Astro.props;
 
-// Wir verarbeiten alle Bilder vor dem Rendern, um optimierte Versionen für die Lightbox zu erstellen
 const optimizedImages = await Promise.all(
   images.map(async (img) => {
     const largeImage = await getImage({

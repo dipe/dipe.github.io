@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Personal website of Peter Ehrenberg (`https://dipe.de`), built with Astro + Starlight. Content is mostly fiNe-scale (1:160 N-gauge) model railway documentation. Prose is English; some code comments are German.
+Personal website of Peter Ehrenberg (`https://dipe.de`), built with Astro + Starlight. Content is mostly fiNe-scale (1:160 N-gauge) model railway documentation. Prose is English; code comments are British English.
 
 Note: the repository lives at `dipe.github.io/` inside the parent working directory — run all commands from the repo root.
 
