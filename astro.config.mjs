@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import sitemap from '@astrojs/sitemap';
 import starlightCatppuccin from '@catppuccin/starlight'
 import starlightLinksValidator from 'starlight-links-validator';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -39,6 +40,14 @@ export default defineConfig({
 		        '/src/styles/custom.css',
       		],
 			lastUpdated: true,
+		}),
+		// Registered explicitly (instead of relying on Starlight's default) so we can filter
+		// out noindex pages and archived project revisions from the submitted sitemap.
+		sitemap({
+			filter: (page) =>
+				!page.includes('/archive/') &&
+				!page.endsWith('/impressum/') &&
+				!page.endsWith('/datenschutzerklaerung/'),
 		}),
 	],
 	vite: {
