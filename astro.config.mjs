@@ -14,6 +14,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://dipe.de',
+	redirects: {
+		'/~pe/FREMO/Aetztechnik_Mini-Howto.pdf': '/fine-scale/tools-and-techniques/etching/',
+	},
 	integrations: [
 		starlight({
 			title: '[dipe]',
