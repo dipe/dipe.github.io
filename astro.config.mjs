@@ -61,6 +61,9 @@ export default defineConfig({
 				},
 			}),
 		],
+		server: {
+			allowedHosts: ['fred'],
+		},
 	},
 	markdown: {
     	rehypePlugins: [
