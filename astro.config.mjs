@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import starlightCatppuccin from '@catppuccin/starlight'
 import starlightLinksValidator from 'starlight-links-validator';
 import rehypeExternalLinks from 'rehype-external-links';
+import { unified } from '@astrojs/markdown-remark';
 import license from 'vite-plugin-license';
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -66,16 +67,18 @@ export default defineConfig({
 		},
 	},
 	markdown: {
-    	rehypePlugins: [
-		[
-			rehypeExternalLinks,
-			{ 
-				content: [],
-				target: '_blank', 
-				rel: ['nofollow', 'noopener', 'noreferrer'],
-				properties: { class: 'external-link' },
-			}
-		],
-	],
-  },
+		processor: unified({
+			rehypePlugins: [
+				[
+					rehypeExternalLinks,
+					{
+						content: [],
+						target: '_blank',
+						rel: ['nofollow', 'noopener', 'noreferrer'],
+						properties: { class: 'external-link' },
+					}
+				],
+			],
+		}),
+	},
 });
