@@ -2,7 +2,7 @@
   "name": "dipe-github-io",
   "type": "module",
   "version": "0.9.0",
-  "packageManager": "pnpm@11.8.0",
+  "packageManager": "pnpm@12.4.2",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,18 +12,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
-    "@astrojs/starlight": "^0.41.7",
-    "@catppuccin/starlight": "^2.0.1",
-    "astro": "^7.2.0",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/starlight": "^0.42.7",
+    "@catppuccin/starlight": "^2.1.0",
+    "astro": "^7.4.2",
     "photoswipe": "^5.4.4",
     "rehype-external-links": "^3.0.0",
     "sharp": "^0.34.5",
-    "starlight-links-validator": "^0.25.2",
+    "starlight-links-validator": "^0.25.3",
     "vite-plugin-license": "^0.0.2"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "^0.9.12",
     "typescript": "^6.0.3"
   }
 }
